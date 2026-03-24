@@ -7,7 +7,11 @@ const tagStyles: Record<MechanicTag, string> = {
   Dispel:  'bg-purple-900/60 text-purple-300 border-purple-700',
   Dodge:   'bg-blue-900/60 text-blue-300 border-blue-700',
   Tank:    'bg-gray-700/60 text-gray-200 border-gray-500',
+  Defensive: 'bg-indigo-900/60 text-indigo-300 border-indigo-700',
   Healer:  'bg-green-900/60 text-green-300 border-green-700',
+  DPS: 'bg-orange-900/60 text-orange-300 border-orange-700',
+  'Priority Target': 'bg-pink-900/60 text-pink-300 border-pink-700',
+  AOE: 'bg-cyan-900/60 text-cyan-300 border-cyan-700',
 };
 
 export function createMechanicTag(tag: MechanicTag): HTMLElement {

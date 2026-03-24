@@ -24,22 +24,34 @@ export function createTrashCard(mob: TrashMob): HTMLElement {
   summary.textContent = mob.summary;
   card.appendChild(summary);
 
-  // Mechanics
-  const list = document.createElement('ul');
-  list.className = 'space-y-1.5';
-  for (const mech of mob.mechanics) {
-    const li = document.createElement('li');
-    li.className = 'flex items-start gap-2 text-sm';
-    li.appendChild(createMechanicTag(mech.tag));
+  if (mob.tags?.length) {
+    const tagRow = document.createElement('div');
+    tagRow.className = 'flex flex-wrap gap-1.5';
+    for (const tag of mob.tags) {
+      tagRow.appendChild(createMechanicTag(tag));
+    }
+    card.appendChild(tagRow);
+  } else {
+    const list = document.createElement('ul');
+    list.className = 'space-y-1.5';
+    for (const mech of mob.mechanics) {
+      const li = document.createElement('li');
+      li.className = 'flex items-start gap-2 text-sm';
 
-    const text = document.createElement('span');
-    text.className = 'text-gray-300';
-    text.textContent = mech.text;
-    li.appendChild(text);
+      const tags = mech.tags ?? (mech.tag ? [mech.tag] : []);
+      for (const tag of tags) {
+        li.appendChild(createMechanicTag(tag));
+      }
 
-    list.appendChild(li);
+      const text = document.createElement('span');
+      text.className = 'text-gray-300';
+      text.textContent = mech.text;
+      li.appendChild(text);
+
+      list.appendChild(li);
+    }
+    card.appendChild(list);
   }
-  card.appendChild(list);
 
   return card;
 }

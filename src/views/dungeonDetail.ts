@@ -1,13 +1,13 @@
-import { dungeons } from '../data/dungeons';
 import { createBossCard } from '../components/bossCard';
 import { createTrashCard } from '../components/trashCard';
 import { createSectionTitle } from '../components/sectionTitle';
 import { navigate } from '../router';
+import { getDungeonById } from '../services/notion';
 
 export function renderDungeonDetail(container: HTMLElement, dungeonId: string): void {
   container.innerHTML = '';
 
-  const dungeon = dungeons.find(d => d.id === dungeonId);
+  const dungeon = getDungeonById(dungeonId);
 
   if (!dungeon) {
     const msg = document.createElement('p');
@@ -17,7 +17,7 @@ export function renderDungeonDetail(container: HTMLElement, dungeonId: string): 
     const backBtn = document.createElement('button');
     backBtn.className = 'mt-4 text-sm text-amber-400 hover:underline';
     backBtn.textContent = '← Back to all dungeons';
-    backBtn.addEventListener('click', () => navigate('/'));
+    backBtn.addEventListener('click', () => navigate('/mythicplus'));
 
     container.appendChild(msg);
     container.appendChild(backBtn);
@@ -28,7 +28,7 @@ export function renderDungeonDetail(container: HTMLElement, dungeonId: string): 
   const back = document.createElement('button');
   back.className = 'text-sm text-gray-500 hover:text-amber-400 transition-colors mb-4 inline-block';
   back.textContent = '← All Dungeons';
-  back.addEventListener('click', () => navigate('/'));
+  back.addEventListener('click', () => navigate('/mythicplus'));
   container.appendChild(back);
 
   // Dungeon title
@@ -46,7 +46,7 @@ export function renderDungeonDetail(container: HTMLElement, dungeonId: string): 
   // Bosses section
   container.appendChild(createSectionTitle(`Bosses (${dungeon.bosses.length})`));
   const bossGrid = document.createElement('div');
-  bossGrid.className = 'grid gap-4 sm:grid-cols-2 mb-8';
+  bossGrid.className = 'grid gap-5 grid-cols-1 mb-8';
   for (const boss of dungeon.bosses) {
     bossGrid.appendChild(createBossCard(boss));
   }

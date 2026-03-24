@@ -1,11 +1,22 @@
 // --- Core domain types for the Mythic+ playbook ---
 
-export type MechanicTag = 'Kick' | 'Stun' | 'Dispel' | 'Dodge' | 'Tank' | 'Healer';
+export type MechanicTag =
+  | 'Kick'
+  | 'Stun'
+  | 'Dispel'
+  | 'Dodge'
+  | 'Tank'
+  | 'Defensive'
+  | 'Healer'
+  | 'DPS'
+  | 'Priority Target'
+  | 'AOE';
 
 export type PriorityLevel = 'High' | 'Medium' | 'Low';
 
 export interface MechanicNote {
-  tag: MechanicTag;
+  tag?: MechanicTag;
+  tags?: MechanicTag[];
   text: string;
 }
 
@@ -13,6 +24,7 @@ export interface Boss {
   name: string;
   summary: string;
   mechanics: MechanicNote[];
+  tags?: MechanicTag[];
   priority: PriorityLevel;
 }
 
@@ -20,6 +32,7 @@ export interface TrashMob {
   name: string;
   summary: string;
   mechanics: MechanicNote[];
+  tags?: MechanicTag[];
   priority: PriorityLevel;
 }
 

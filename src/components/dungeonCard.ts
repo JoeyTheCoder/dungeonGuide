@@ -7,8 +7,16 @@ import type { MechanicTag } from '../types';
 /** Collect unique mechanic tags across bosses and trash */
 function collectTags(dungeon: Dungeon): MechanicTag[] {
   const tags = new Set<MechanicTag>();
-  for (const b of dungeon.bosses) for (const m of b.mechanics) tags.add(m.tag);
-  for (const t of dungeon.trash) for (const m of t.mechanics) tags.add(m.tag);
+  for (const b of dungeon.bosses) for (const m of b.mechanics) {
+    if (m.tag) tags.add(m.tag);
+    for (const tag of m.tags ?? []) tags.add(tag);
+  }
+  for (const b of dungeon.bosses) for (const tag of b.tags ?? []) tags.add(tag);
+  for (const t of dungeon.trash) for (const m of t.mechanics) {
+    if (m.tag) tags.add(m.tag);
+    for (const tag of m.tags ?? []) tags.add(tag);
+  }
+  for (const t of dungeon.trash) for (const tag of t.tags ?? []) tags.add(tag);
   return [...tags];
 }
 
@@ -56,7 +64,7 @@ export function createDungeonCard(dungeon: Dungeon): HTMLElement {
   card.appendChild(tagRow);
 
   // Navigation
-  card.addEventListener('click', () => navigate(`/dungeon/${dungeon.id}`));
+  card.addEventListener('click', () => navigate(`/mythicplus/${dungeon.id}`));
 
   return card;
 }

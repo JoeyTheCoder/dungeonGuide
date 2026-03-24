@@ -1,9 +1,10 @@
-import { dungeons } from '../data/dungeons';
 import { createDungeonCard } from '../components/dungeonCard';
 import { createSearchBar } from '../components/searchBar';
+import { getDungeons } from '../services/notion';
 
 export function renderDungeonList(container: HTMLElement): void {
   container.innerHTML = '';
+  const dungeons = getDungeons();
 
   // Page header
   const pageHeader = document.createElement('div');
