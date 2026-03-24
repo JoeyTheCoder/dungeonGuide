@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Minimal custom styles — keep most styling in Tailwind utility classes */
+
+/* Smooth scrolling for in-page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark UI */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.gray.900');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.gray.700');
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.gray.600');
+}

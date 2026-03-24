@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DungeonGuide — Mythic+ Playbook</title>
+  <link href="/src/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+  <!-- Header is injected by main.ts -->
+  <div id="app-header"></div>
+
+  <!-- Main layout: sidebar + content -->
+  <div class="flex flex-1 overflow-hidden">
+    <div id="app-sidebar"></div>
+    <main id="app-content" class="flex-1 overflow-y-auto p-6"></main>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
