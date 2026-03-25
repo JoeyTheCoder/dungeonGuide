@@ -103,14 +103,15 @@ jobs:
           script: |
             set -eu
             DEPLOY_PATH="${{ secrets.DEPLOY_PATH }}"
+            TMP_DEPLOY_PATH="/tmp/dungeonGuide-${{ github.run_id }}-${{ github.run_attempt }}"
 
             if [ -z "$DEPLOY_PATH" ] || [ "$DEPLOY_PATH" = "/" ]; then
               echo "Refusing to deploy to an unsafe path."
               exit 1
             fi
 
-            mkdir -p "$DEPLOY_PATH"
-            find "$DEPLOY_PATH" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+            rm -rf "$TMP_DEPLOY_PATH"
+            mkdir -p "$TMP_DEPLOY_PATH"
 
       - name: Copy site to server
         uses: appleboy/scp-action@v0.1.7
@@ -120,5 +121,27 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           source: dist/*
-          target: ${{ secrets.DEPLOY_PATH }}
+          target: /tmp/dungeonGuide-${{ github.run_id }}-${{ github.run_attempt }}
           strip_components: 1
+
+      - name: Publish site into web root
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -eu
+            DEPLOY_PATH="${{ secrets.DEPLOY_PATH }}"
+            TMP_DEPLOY_PATH="/tmp/dungeonGuide-${{ github.run_id }}-${{ github.run_attempt }}"
+
+            if ! sudo -n true 2>/dev/null; then
+              echo "SSH user requires passwordless sudo for publish commands."
+              exit 1
+            fi
+
+            sudo mkdir -p "$DEPLOY_PATH"
+            sudo find "$DEPLOY_PATH" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+            sudo cp -a "$TMP_DEPLOY_PATH"/. "$DEPLOY_PATH"/
+            rm -rf "$TMP_DEPLOY_PATH"
