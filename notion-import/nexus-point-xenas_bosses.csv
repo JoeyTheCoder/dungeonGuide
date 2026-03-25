@@ -1,0 +1,10 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Chief Corewright Kasreth,Nexus-Point Xenas,"Arcane control fight with beam shutdowns, puddle baiting, and absorb-heavy detonations.","[Phase 1] Never cross Leyline Array unless you have Reflux Charge, in which case you step into intersections to disable as many beams as possible.
+[Phase 2] Bait Flux Collapse and Corespark Detonation puddles to the room edge, and prepare healer cooldowns for the detonation hit plus healing absorb.
+[Phase 3] Tanks remember the boss deals Arcane Zap instead of normal melee, so mitigation must cover frequent magic hits while movement keeps the grid manageable.",High,Movement;Magic Damage;Healer;Positioning;Tank;Defensive,1
+Corewarden Nysarra,Nexus-Point Xenas,"Void miniboss fight with debuffed players, dangerous summoned adds, and burst-vulnerable phases.","[Phase 1] Eclipsing Step targets spread cleanly so its hit and DoT never cleave nearby allies.
+[Phase 2] On Null Vanguard, interrupt Nullify, point Dreadflail's Void Lash away from the group, and kill the add pack before it overruns the arena.
+[Phase 3] Tanks hold a defensive for Umbral Lash while the group pushes the Lightscar Flare damage window once adds are under control.",High,Interrupt;Tank;Add Control;Spread;Burst;Defensive;Healer,2
+Lothraxion,Nexus-Point Xenas,"Image-management final boss with permanent puddles, targeted bursts, and roaming clone hazards.","[Phase 1] Tanks use defensives for Searing Rend and drop its permanent puddles where future movement will stay clear.
+[Phase 2] Brilliant Dispersion targets spread, use personals for the DoT, and then avoid every Fractured Image they leave behind.
+[Phase 3] Watch for clone Flicker dashes and Mirrored Rend proximity hits, because the room gets harder the longer puddles and images stack up.",High,Tank;Spread;Movement;Defensive;Positioning;Dodge,3

@@ -13,7 +13,7 @@ export function createHeader(): HTMLElement {
        class="flex items-center gap-2 shrink-0 group select-none">
       <span class="text-base font-black tracking-widest uppercase text-amber-400
                    group-hover:text-amber-300 transition-colors">
-        ⚔ DungeonGuide
+        ⚔ FFG-Playbook
       </span>
     </a>
 

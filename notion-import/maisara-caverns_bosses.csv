@@ -1,0 +1,10 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Muro'jin & Nekraxx,Maisara Caverns,"Dual-boss opener that demands even health, trap routing, and disease-aware defensive play.","[Phase 1] Split damage evenly so Muro'jin never gets to Revive Pet and Nekraxx never snowballs with Bestial Wrath.
+[Phase 2] Use Freezing Traps only for Carrion Swoop, because stunning Nekraxx with an ice block is the safest way to absorb the charge without clipping the group.
+[Phase 3] Use personals for Infected Pinions or Barrage overlaps and keep clear of Fetid Quillstorm until both bosses die together.",High,Shared Health;Movement;Disease;Healer;Defensive;Mechanic Use,1
+Vordaza,Maisara Caverns,"Attrition boss with phantom collisions, tank channels, frontal dodges, and shield breaks.","[Phase 1] Dodge Unmake and keep Withering Miasma healing planned from pull onward.
+[Phase 2] Kite Wrest Phantoms into each other in pairs, never detonate too many at once, and avoid standing in the pools they leave behind.
+[Phase 3] Tanks use defensives for Drain Soul and the group saves damage to break Necrotic Convergence before the channel resolves.",High,Tank;Healer;Movement;Dodge;Priority Target;Burst;Defensive,2
+"Rak'tul, Vessel of Souls",Maisara Caverns,"Final soul boss with constant aura damage, grouped totem spawns, and tank knockback combos.","[Phase 1] Heal through Deathgorged Vessel while sidestepping Volatile Essence circles and preserving space.
+[Phase 2] During Crush Souls, the three targets group tightly so Soulbind Totems spawn together, then the party swaps to destroy the totems before the pull effect spirals.
+[Phase 3] Tanks move Spiritbreaker away from the group, drop the puddle cleanly, and use mobility or front braziers to survive the knockback.",High,Healer;Priority Target;Tank;Movement;Positioning;Defensive,3

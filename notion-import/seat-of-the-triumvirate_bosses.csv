@@ -1,0 +1,13 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Zuraal the Ascended,Seat of the Triumvirate,"Single-target void boss with leap puddles, frontal pressure, and ooze-control checks.","[Phase 1] Drop Decimate leaps and Void Sludge at the edges or on old puddles, keep Null Palm faced away, and use tank defensives for Void Slash.
+[Phase 2] Oozing Slam applies group damage and spawns Coalesced Void; slow, stun, or hard-CC one ooze while the group kills the other, then place the death puddles out of traffic.
+[Phase 3] As room space tightens, keep the boss central, preserve melee uptime without overextending, and rotate personals if Slam or Slash overlaps with bad puddle placement.",High,Dodge;Tank;Healer;Add Control;Positioning;Defensive,1
+Saprish,Seat of the Triumvirate,"Shared-health trio with bomb management, pet interrupts, and overlapping random-target damage.","[Phase 1] Stack Saprish with both pets for cleave while keeping enough space to see and route around Void Bomb spawns.
+[Phase 2] Use Phase Dash circles to detonate as many Void Bombs as possible, then immune or soak leftovers before Overload finishes and top the group for the follow-up DoT.
+[Phase 3] Keep Shadewing's Dread Screech interrupted, watch Darkfang's Shadow Pounce bleed, and hold defensives for bomb handling during pet overlap windows.",High,Interrupt;Bleed;Healer;Dodge;Cleave;Defensive,2
+Viceroy Nezhar,Seat of the Triumvirate,"Add-cleave void encounter with wave dodging, tank interrupt pressure, and a central collapse phase.","[Phase 1] Dodge Umbral Waves from the spawned Gates of the Abyss and use personals if you are one of the Mass Void Infusion targets.
+[Phase 2] Keep Mind Blast interrupted on the tank and kill Umbral Tentacles quickly to reduce Mind Flay pressure on the party.
+[Phase 3] After Repulse, rush back under the boss for Collapsing Void and commit healing cooldowns plus group defensives for the channel.",High,Dodge;Interrupt;Tank;Add Control;Healer;Defensive;Movement,3
+L'ura,Seat of the Triumvirate,Roomwide attrition fight built around silencing notes and bursting the vulnerable intermission.,"[Phase 1] Heal through Dirge of Despair while six Notes of Despair pulse around the room and spread your party cooldown plan across repeated casts.
+[Phase 2] Aim Discordant Beam through active notes to silence them, then reposition quickly whenever Grim Chorus relocates notes and creates danger circles.
+[Phase 3] Once all notes are silenced, burst during Siphon Void before Anguish and note damage ramps back to an unhealable level.",High,Healer;Dodge;Burst;Movement;Priority Target;Defensive,4

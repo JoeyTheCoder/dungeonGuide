@@ -1,4 +1,6 @@
-// --- Core domain types for the Mythic+ playbook ---
+// --- Core domain types for the WoW playbook ---
+
+export type ContentSectionId = 'mythicplus' | 'raids' | 'delves';
 
 export type MechanicTag =
   | 'Kick'
@@ -38,8 +40,10 @@ export interface TrashMob {
 
 export interface Dungeon {
   id: string;
+  section: ContentSectionId;
   name: string;
   summary: string;
+  expansion?: string;
   bosses: Boss[];
   trash: TrashMob[];
 }

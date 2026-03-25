@@ -1,45 +1,36 @@
 import { renderDungeonList } from './views/dungeonList';
 import { renderDungeonDetail } from './views/dungeonDetail';
+import { isContentSectionId } from './config/sections';
+import type { ContentSectionId } from './types';
 
 // Simple hash-based router.
 // Routes:
-//   #/             → redirect to mythicplus
-//   #/mythicplus   → dungeon list
-//   #/mythicplus/:id → dungeon detail
-//   #/raids        → placeholder
-//   #/delves       → placeholder
+//   #/               → redirect to mythicplus
+//   #/:section       → section list
+//   #/:section/:id   → section detail
 
 type Route =
-  | { view: 'list' }
-  | { view: 'detail'; dungeonId: string }
-  | { view: 'placeholder'; section: string };
+  | { view: 'list'; section: ContentSectionId }
+  | { view: 'detail'; section: ContentSectionId; dungeonId: string };
 
 function parseHash(hash: string): Route {
   const path = hash.replace(/^#/, '') || '/mythicplus';
 
-  const detailMatch = path.match(/^\/mythicplus\/([a-z0-9-]+)$/);
-  if (detailMatch) return { view: 'detail', dungeonId: detailMatch[1] };
+  const parts = path.replace(/^\//, '').split('/').filter(Boolean);
+  const section = parts[0];
 
-  if (path === '/' || path === '/mythicplus') return { view: 'list' };
-  if (path === '/raids') return { view: 'placeholder', section: 'Raids' };
-  if (path === '/delves') return { view: 'placeholder', section: 'Delves' };
+  if (!section || !isContentSectionId(section)) {
+    return { view: 'list', section: 'mythicplus' };
+  }
 
-  return { view: 'list' };
+  if (parts[1]) {
+    return { view: 'detail', section, dungeonId: parts[1] };
+  }
+
+  return { view: 'list', section };
 }
 
 let contentContainer: HTMLElement | null = null;
-
-function renderPlaceholder(container: HTMLElement, section: string) {
-  container.innerHTML = '';
-  const wrap = document.createElement('div');
-  wrap.className = 'flex flex-col items-center justify-center h-64 text-center gap-3';
-  wrap.innerHTML = `
-    <span class="text-4xl">🚧</span>
-    <p class="text-lg font-bold text-gray-300">${section}</p>
-    <p class="text-sm text-gray-500">Content coming soon.</p>
-  `;
-  container.appendChild(wrap);
-}
 
 function render() {
   if (!contentContainer) return;
@@ -48,13 +39,10 @@ function render() {
 
   switch (route.view) {
     case 'list':
-      renderDungeonList(contentContainer);
+      renderDungeonList(contentContainer, route.section);
       break;
     case 'detail':
-      renderDungeonDetail(contentContainer, route.dungeonId);
-      break;
-    case 'placeholder':
-      renderPlaceholder(contentContainer, route.section);
+      renderDungeonDetail(contentContainer, route.section, route.dungeonId);
       break;
   }
 

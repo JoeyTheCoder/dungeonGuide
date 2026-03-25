@@ -1,0 +1,14 @@
+Sources used for this pack (March 2026):
+- Blizzard News: Midnight Season 1 Mythic+ Now Available!
+- Method dungeon guides:
+  - Seat of the Triumvirate
+  - Skyreach
+  - Magister's Terrace
+  - Pit of Saron
+  - Algeth'ar Academy
+  - Nexus Point Xenas
+  - Windrunner Spire
+  - Maisara Caverns
+
+Trash rows were based on the notable trash sections of the Method guides.
+Boss files were split from the combined midnight_s1_mythic_bosses.csv already generated in this conversation.

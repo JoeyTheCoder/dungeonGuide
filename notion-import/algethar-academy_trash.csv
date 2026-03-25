@@ -1,0 +1,19 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Vile Lasher,Algeth'ar Academy,Immune plant mob with a stacking bleed tank hit plus swirlies on every player.,"[Tank] Vile Bite is the main danger; use defensives or bleed cleanses as stacks climb.
+[Dodge] Every player should sidestep Detonation Seeds immediately.
+[Pull Size] These are one of the main reasons first area overpulls get messy fast.",High,Tank;Bleed;Dodge;Defensive,1
+Guardian Sentry,Algeth'ar Academy,Wind sentinel that pressures both tank and party with area denial.,"[Tank] Use a defensive for Storm Slash.
+[Movement] Deadly Winds leaves tornado pressure on random players, so keep the route open.
+[Line of Sight] Run out of or line Expel Intruders behind terrain when needed.",High,Tank;Dodge;Line of Sight;Priority Target,2
+Alpha Eagle,Algeth'ar Academy,Immune bird mob with frontal control and an enrage AoE.,"[Dodge] Sidestep Gust every time it is aimed at a player.
+[Soothe] Raging Screech enrages the mob and hits the party, so soothe if available.
+[Tank] If Peck stacks are already high, plan a defensive before the Screech window.",High,Dodge;Soothe;Tank;Healer,3
+Corrupted Manafiend,Algeth'ar Academy,Caster pack staple with a stop-or-die surge and splash damage.,"[Kick] Interrupt Surge whenever possible.
+[Spread] Mana Void targets two players, so avoid clipping allies.
+[Priority] Kill these before long melee targets if your comp is kick-light.",Medium,Interrupt;Spread;Priority Target,4
+Arcane Ravager,Algeth'ar Academy,Leap-and-frontal beast that punishes distant players.,"[Positioning] Stay close enough that Vicious Ambush does not create a long leap to an isolated player.
+[Dodge] After the charge, immediately sidestep Rift Breath from the tank side.
+[Defensive] Use a personal if you are the leap target during overlap damage.",Medium,Dodge;Defensive;Positioning,5
+Unruly Textbook,Algeth'ar Academy,"Annoying control mob that can be solved by kick, stop, or magic dispel.","[Kick] Interrupt Monotonous Lecture when available.
+[Dispel] Once the channel starts, a magic dispel or stop can also break it.
+[Utility] Save one fast answer for this mob if your pull includes harder tank pressure elsewhere.",Medium,Interrupt;Magic Dispel;Utility,6

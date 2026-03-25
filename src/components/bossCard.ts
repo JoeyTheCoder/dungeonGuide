@@ -4,7 +4,7 @@ import { createMechanicTag } from './mechanicTag';
 
 export function createBossCard(boss: Boss): HTMLElement {
   const card = document.createElement('div');
-  card.className = 'w-full bg-gray-800 border border-gray-700 rounded-xl p-5';
+  card.className = 'w-full bg-gray-900/60 border border-gray-800/50 rounded-xl p-5';
 
   // Header
   const header = document.createElement('div');

@@ -1,0 +1,10 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Forgemaster Garfrost,Pit of Saron,"Ore-chunk management fight with targeted circles, anti-stun tank play, and hide phases.","[Phase 1] Spread Throw Saronite circles so Ore Chunks and the puddles they leave do not wall off the arena.
+[Phase 2] Tanks use Orebreaker on an Ore Chunk to break it and avoid the stun while still mitigating the hit.
+[Phase 3] Hide behind the last chunk for Glacial Overload, then dispel Cryostomp targets quickly to reduce Siphoning Chill damage.",High,Positioning;Tank;Magic Dispel;Dodge;Defensive;LOS,1
+Ick & Krick,Pit of Saron,"Shared-health duo with add cleave, interrupt priority, puddle placement, and fixate kiting.","[Phase 1] Cleave both bosses because Necrolink shares health, then interrupt Krick's Death Bolt while controlling Shades from Shade Shift.
+[Phase 2] Use freedoms or curse dispels on Shadowbind, drop Blight Smash and Plague Explosion puddles out of traffic, and use tank cooldowns for Blight Smash.
+[Phase 3] During Get 'em, Ick!, the fixated player kites cleanly for the full chase while the rest of the group maximizes boss and add cleave.",High,Interrupt;Curse Dispel;Add Control;Tank;Movement;Defensive;Shared Health,2
+Scourgelord Tyrannus,Pit of Saron,"Bone-pile final boss with target marking, add-wave triage, and layered ground denial.","[Phase 1] Aim Rime Blast through marked Bone Piles to prepare cleaner Army of the Dead spawns later in the fight.
+[Phase 2] On Army of the Dead, tank Rotlings carefully, dispel Rotting Strikes as needed, and swap hard to Plaguespreaders while interrupting Plague Bolt and stabilizing Festering Pulse.
+[Phase 3] Tanks use a defensive for Scourgelord's Brand and move to avoid the follow-up leap, while everyone sidesteps Death's Grasp and Ice Barrage circles.",High,Priority Target;Interrupt;Tank;Disease Dispel;Movement;Add Control;Healer;Defensive,3

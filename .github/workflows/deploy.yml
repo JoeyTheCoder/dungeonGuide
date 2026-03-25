@@ -33,7 +33,7 @@ jobs:
       - name: Sync dungeon data from Notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NOTION_DUNGEONS_DATABASE_ID: ${{ secrets.NOTION_DUNGEONS_DATABASE_ID }}
         run: npm run sync:notion
 
       - name: Build app
@@ -52,6 +52,33 @@ jobs:
     environment: production
 
     steps:
+      - name: Validate deployment configuration
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          test -n "$SSH_HOST"
+          test -n "$SSH_USER"
+          test -n "$SSH_PRIVATE_KEY"
+          test -n "$SSH_PORT"
+          test -n "$DEPLOY_PATH"
+
+          case "$DEPLOY_PATH" in
+            /|"" )
+              echo "DEPLOY_PATH must not be empty or /."
+              exit 1
+              ;;
+            /* )
+              ;;
+            * )
+              echo "DEPLOY_PATH must be an absolute path."
+              exit 1
+              ;;
+          esac
+
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
@@ -66,8 +93,16 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            mkdir -p "${{ secrets.DEPLOY_PATH }}"
-            rm -rf "${{ secrets.DEPLOY_PATH }}"/*
+            set -eu
+            DEPLOY_PATH="${{ secrets.DEPLOY_PATH }}"
+
+            if [ -z "$DEPLOY_PATH" ] || [ "$DEPLOY_PATH" = "/" ]; then
+              echo "Refusing to deploy to an unsafe path."
+              exit 1
+            fi
+
+            mkdir -p "$DEPLOY_PATH"
+            find "$DEPLOY_PATH" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
 
       - name: Copy site to server
         uses: appleboy/scp-action@v0.1.7

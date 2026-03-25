@@ -1,0 +1,13 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Emberdawn,Windrunner Spire,"Fire platform boss with debuff puddles, high-damage intermissions, and rotating frontal sweeps.","[Phase 1] Flaming Updraft targets move to the outer rim so their puddles and later Flaming Twisters do not cut the center of the platform.
+[Phase 2] During Burning Gale, heal through the raid damage while dodging spawned twisters and the rotating Fire Breath frontals.
+[Phase 3] As floor space shrinks, keep safe outer placements disciplined so the next gale cycle still leaves clean lanes.",High,Healer;Movement;Dodge;Positioning;Defensive,1
+Derelict Duo,Windrunner Spire,"Two-target undead fight with simultaneous-kill pressure, interrupt checks, and forced line play.","[Phase 1] Keep both bosses even, because Broken Bond on the survivor becomes unmanageable if one dies early.
+[Phase 2] Interrupt Shadow Bolt, dispel or out-range Curse of Darkness, and use crowd control to stop the Dark Entity if the curse cannot be removed.
+[Phase 3] When Debilitating Shriek overlaps Heaving Yank, the yanked player runs behind Kalis to stop the group blast while the team keeps both bosses close for cleave.",High,Interrupt;Curse Dispel;Shared Health;Cleave;Movement;CC;Defensive,2
+Commander Kroluk,Windrunner Spire,"Leap-baiting commander fight with fear checks, tank channels, and add-cleave positioning.","[Phase 1] Designate the furthest player to bait the first Reckless Leap, then let the tank bait the second while everyone dodges Falling Rubble.
+[Phase 2] Pair up or stack in small groups for Intimidating Shout so nobody gets feared out of position.
+[Phase 3] Tanks use defensives for Rampage, keep spawned adds stacked for cleave, and heal Rallying Bellow plus leap damage before the next sequence.",High,Movement;Tank;Healer;Bait;Cleave;Defensive,3
+The Restless Heart,Windrunner Spire,Arrow-driven finale where the group clears stacks and times aerial dodges to survive wind mechanics.,"[Phase 1] Dodge Arrow Rain while using Turbulent Arrows to remove Squall Leap stacks before they become unmanageable.
+[Phase 2] Pre-position for Bullseye Windblast and Billowing Wind so the group does not double up on the same arrow and lose a safe launch point.
+[Phase 3] Tanks can use an arrow to cancel Tempest Slash knockback while also clearing their own stacks, and the party should use personals for Bolt Gale.",High,Movement;Dodge;Mechanic Use;Tank;Defensive;Coordination,4

@@ -1,0 +1,22 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Arcane Sentry,Magisters' Terrace,"Front-loaded opener mob with tank shackles, beam puddles, and knockback damage.","[Tank] Ethereal Shackles on the tank should be removed with a freedom effect or magic dispel whenever possible.
+[Dodge] Arcane Beam leaves puddles behind the targeted player, so keep them out of the main lane.
+[Healer] Crowd Dispersal is the danger point; top the party and watch for bad knockback angles.",High,Tank;Magic Dispel;Dodge;Healer;Priority Target,1
+Arcane Magister,Magisters' Terrace,Utility caster that can lock down players if kicks are missed.,"[Kick] Polymorph is the priority interrupt every time.
+[Dispel] If a sheep lands, remove it quickly with a magic dispel.
+[Fallback] Spend spare interrupts on Arcane Bolt once Polymorph is covered.",Medium,Interrupt;Magic Dispel,2
+Blazing Pyromancer,Magisters' Terrace,Library gatekeeper that combines a mandatory kick with heavy rot and swirlies.,"[Kick] Interrupt every Pyroblast cast.
+[Healer] Ignition is the healing check; commit party healing or defensives if the pull is large.
+[Dodge] Flamestrike leaves a hit plus puddle, so move early and keep space open.",High,Interrupt;Healer;Dodge;Priority Target,3
+Runed Spellbreaker,Magisters' Terrace,Post-boss bruiser that spikes two players and lines the tank with a beam.,"[Defensive] Runic Glaive can hit hard on its two random targets, especially in overlap windows.
+[Tank] Face Shield Slam away from the party and sidestep the line yourself.
+[Priority] Clean these up before extending the pull into extra casters.",High,Defensive;Tank;Frontal;Priority Target,4
+Shadowrift Voidcaller,Magisters' Terrace,Void summoner that creates extra adds and a dangerous group-wide channel.,"[Tank] Be ready to grab the mobs created by Call of the Void.
+[Healer] Consuming Shadows is the key rot event; line of sight it if the pull is sketchy.
+[Priority] This is a strong stop-or-kill target in every void pack.",High,Tank;Healer;Priority Target;Line of Sight,5
+Void Infuser,Magisters' Terrace,Control caster with a mandatory interrupt and a dispel-heavy debuff.,"[Kick] Interrupt every Terror Wave cast.
+[Dispel] Consuming Void should be dispelled on priority targets first if multiple debuffs go out.
+[Defensive] Use personals when dispels are exhausted or the pull overlaps with other void damage.",High,Interrupt;Magic Dispel;Defensive,6
+Devouring Tyrant,Magisters' Terrace,Large void brute that places major healing absorbs on both tank and random players.,"[Tank] Use a defensive for Devouring Strike and help clear the absorb with self-healing if possible.
+[Spread] Void Bomb should not cleave allies, so give the targeted player room.
+[Healer] Plan fast spot healing around this mob because missed absorbs quickly chain into deaths.",High,Tank;Healer;Spread;Defensive;Priority Target,7

@@ -1,0 +1,13 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Ranjit,Skyreach,"Platform fight with wind-orb placement, bleed bursts, and returning chakram paths.","[Phase 1] Place Gale Surge wind orbs where they will not block later movement or knock players off the platform.
+[Phase 2] Heal or cleanse Fan of Blades bleeds aggressively and use personals if the same players are targeted in back-to-back cycles.
+[Phase 3] Track both the outbound and returning path of Wind Chakram while sidestepping Chakram Vortex tornadoes and preserving safe lanes.",High,Dodge;Bleed;Healer;Movement;Defensive;Positioning,1
+Araknath,Skyreach,Stationary construct fight centered on intercept beams and energy-based burst windows.,"[Phase 1] Keep a tank in melee to stop Blast Wave, but respect the small Defensive Protocol zone under the boss.
+[Phase 2] Non-tanks intercept Energize beams from Lesser Constructs, while the tank points Fiery Smash away from beam-soakers and then dodges Heart Exhaustion.
+[Phase 3] If any Energize beams connect, prepare group defensives for a much harder Supernova at full energy.",High,Soak;Tank;Dodge;Healer;Defensive;Positioning,2
+Rukhran,Skyreach,"Stationary bird boss with fixate add control, egg placement, and pillar-hide checks.","[Phase 1] Swap instantly to the Sunwing from Sunbreak, kite Burning Pursuit cleanly, and never kill the add on top of eggs or it will respawn.
+[Phase 2] Tanks stay in range to stop Screech, but the whole group must hide behind the pillar for every Searing Quills cast.
+[Phase 3] Return to the boss quickly after each hide and use tank defensives on every Burning Claws.",High,Priority Target;Movement;Tank;Healer;LOS;Defensive,3
+High Sage Viryx,Skyreach,"Final platform boss with rescue checks, chase-beam placement, and mandatory interrupts.","[Phase 1] Heal Scorching Ray targets aggressively and use personals if repeat beams stack on the same players.
+[Phase 2] When Cast Down grabs a player, they run toward the entrance while the group swaps, stuns, and slows the add before the victim is thrown away.
+[Phase 3] Kite Lens Flare to the platform edges, avoid its fire trail, and keep Solar Blast interrupted to reduce tank damage.",High,Interrupt;Priority Target;Movement;Healer;Dodge;Defensive;Stun,4

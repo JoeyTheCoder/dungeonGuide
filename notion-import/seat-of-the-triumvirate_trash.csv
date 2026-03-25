@@ -1,0 +1,16 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Merciless Subjugator,Seat of the Triumvirate,Opening caster that front-loads party damage with chains and an absorb.,"[Pull Setup] Loosely spread before Chains of Subjugation so the group is not clipped by extra overlap, then use snare breaks or defensives as needed.
+[Healer] Clear Leeching Void absorbs quickly before the next burst lands.
+[Priority] Kill these first in the opener because they are immune to CC and do the most immediate party damage.",High,Healer;Defensive;Spread;Priority Target,1
+Rift Warden,Seat of the Triumvirate,Static mini-boss trash that must be fought near its rift while pulsing dangerous void damage.,"[Positioning] Fight the mob within range of its rift so Stabilize does not trigger a lethal explosion.
+[Healer] Be ready for Void Expulsion and move out of the circles it leaves behind.
+[Utility] Dispel Rift Essence when possible or have the target use a defensive.",High,Healer;Magic Dispel;Movement;Defensive;Priority Target,2
+Dire Voidbender,Seat of the Triumvirate,Caster whose buff cast can turn nearby trash into a lethal pull.,"[Kick] Interrupt every Abyssal Enhancement cast.
+[Purge] If a cast slips through, immediately purge the buff instead of trying to outheal it.
+[Routing] Keep this mob near the front of your interrupt order whenever it is in a pack.",High,Interrupt;Purge;Priority Target,3
+Void-Infused Destroyer,Seat of the Triumvirate,Large add with targeted bursts and a random frontal that punishes loose positioning.,"[Spread] Eruption picks two players, so avoid stacking and do not clip allies with the follow-up DoT.
+[Dodge] Watch for Void Cleave aimed at a random target and sidestep early.
+[Defensive] Use personals when Eruption overlaps with other pack damage.",High,Dodge;Spread;Defensive;Priority Target,4
+Grand Shadow-Weaver,Seat of the Triumvirate,Void caster that floods the lane with wave projectiles and single-target pressure.,"[Movement] Avoid Umbral Waves coming from the Gate of the Abyss the mob creates.
+[Defensive] Use a personal or combat drop if you are targeted by Void Infusion.
+[Priority] Pull carefully around this mob because the lane gets crowded fast once the gate is active.",Medium,Dodge;Defensive;Movement,5

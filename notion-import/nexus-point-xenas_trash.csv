@@ -1,0 +1,19 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Flux Engineer,Nexus-Point Xenas,Ethereal support mob that punishes movement and leaves behind a must-kill object.,"[Spread] Pre-spread for Suppression Field and, if targeted, move as little as possible.
+[Priority Target] Destroy the Mana Battery it drops on death before another mob reactivates it.
+[Routing] These mobs are awkward in chain pulls because the battery can extend danger after the mob dies.",High,Spread;Priority Target;Movement,1
+Circuit Seer,Nexus-Point Xenas,"Immune caster that combines rot damage, swirlies, and battery reactivations.","[Healer] Arcing Mana is the dangerous channel, so be ready with personals or healing cooldowns.
+[Dodge] Move out of Erratic Zap and Power Flux, then leave the puddles behind.
+[Priority] Kill nearby Mana Batteries immediately so Circuit Sense cannot reactivate them.",High,Healer;Dodge;Priority Target;Movement,2
+Duskfright Herald,Nexus-Point Xenas,Void miniboss-style mob with a healing absorb channel and persistent party rot.,"[Healer] Entropic Leech must be removed with an absorb clear or combat drop.
+[Dodge] Dark Beckoning adds pulsing damage plus projectiles, so keep moving without dragging the pull wide.
+[Priority] This is one of the most dangerous void-wing kill targets.",High,Healer;Movement;Priority Target,3
+Grand Nullifier,Nexus-Point Xenas,Interrupt check that also seeds extra awakeners on death.,"[Kick] Stop every Nullify cast.
+[Dodge] Avoid fear zones from Dusk Frights while holding the pull compact.
+[Cleanup] After death, immediately control and kill the Smudge before it awakens a Dreadflail.",High,Interrupt;Dodge;Add Control;Priority Target,4
+Dreadflail,Nexus-Point Xenas,Immune frontal brute that becomes deadly if it gets room to spin or fixate.,"[Tank] Face Void Lash away from the party and use a defensive for the empowered hits.
+[Dodge] Step out of Flailstorm, or kite if you are the fixated target.
+[Pull Control] Avoid waking extra Dreadflails unless stops are ready.",High,Tank;Frontal;Dodge;Defensive,5
+Lightwrought,Nexus-Point Xenas,Light-wing caster with an important interrupt and a double-player dispel burden.,"[Kick] Keep Holy Bolt interrupted.
+[Dispel] Burning Radiance hits two players, so dispel one immediately and stabilize the other with healing or personals.
+[Priority] This mob is a strong first kill in light-wing packs.",High,Interrupt;Magic Dispel;Healer;Priority Target,6

@@ -1,0 +1,19 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Driving Gale-Caller,Skyreach,High-value caster that can repeatedly displace the group.,"[Kick] Interrupt every Repel cast.
+[Positioning] Save stops for this mob if multiple casters are in the pull.
+[Priority] This is one of the cleanest first-kill targets in Skyreach trash.",High,Interrupt;Priority Target;Positioning,1
+Adorned Bladetalon,Skyreach,Dangerous bird add with bleed pressure on both tank and random players.,"[Bleed] Blade Rush hits two random players plus the tank, so be ready with bleed cleanses, personals, and fast healing.
+[Tank] Shear can overlap with Blade Rush, making back-to-back physical damage especially dangerous.
+[Priority] Treat these mobs as major defensive checks in larger pulls.",High,Bleed;Tank;Healer;Defensive;Priority Target,2
+Blinding Sun Priestess,Skyreach,Solar caster that combines a mandatory interrupt with an enemy shield buff.,"[Kick] Stop every Blinding Light cast.
+[Purge] Remove Solar Barrier immediately or swap hard onto the shielded mob.
+[Priority] Keep this mob under control before committing damage elsewhere in the pack.",High,Interrupt;Purge;Priority Target,3
+Solar Elemental,Skyreach,Construct trash that spawns a must-kill orb while layering floor effects.,"[Priority Target] Swap to the Solar Orb the moment it spawns and kill it before it snowballs.
+[Dodge] Keep moving out of Solar Fire circles.
+[Pull Control] Avoid overpulling around this mob because the orb demands immediate target swaps.",High,Priority Target;Dodge;Movement,4
+Sun Talon Tamer,Skyreach,Handler mob that marks players for lethal chase pressure.,"[Kite] If you are marked by Mark of Death, create distance early and use a personal if other damage is incoming.
+[Awareness] Make sure the party is not stacked behind the marked player.
+[Priority] This mob becomes much scarier when paired with other random-target damage.",Medium,Kite;Defensive;Movement,5
+Raging Squall,Skyreach,Enrage-heavy storm mob with extra melee damage and a death zone.,"[Tank] Wind Claws adds extra nature damage to its swings, so respect melee uptime.
+[Soothe] Remove Wrathful Wind when possible.
+[Dodge] Step out of the Wind Blast area the mob leaves behind on death.",Medium,Tank;Soothe;Dodge,6

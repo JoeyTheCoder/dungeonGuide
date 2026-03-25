@@ -1,0 +1,19 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Quarry Tormentor,Pit of Saron,Opening curse caster that punishes tanks for staying too healthy.,"[Curse] Remove Curse of Torment quickly or heal through the absorb to clear it.
+[Tank] Respect the extra shadow damage while you are above 65% health.
+[Priority] This mob is a clean first kick or first kill in quarry pulls.",Medium,Curse Dispel;Tank;Priority Target,1
+Rotting Ghoul,Pit of Saron,Tank-bleeding undead that snowballs without disease removal.,"[Tank] Rotting Strikes stacks quickly, so kite or use a defensive once stacks rise.
+[Disease] Remove the disease when possible to keep the pull stable.
+[Routing] Avoid pairing multiple ghouls with other tank busters unless cooldowns are ready.",High,Tank;Disease;Kite;Defensive,2
+Arcanist Cadaver,Pit of Saron,Mandatory interrupt caster that threatens the whole group.,"[Kick] Interrupt every Netherburst cast.
+[Priority] Assign this cast before the pull starts if there are multiple dangerous mobs.
+[Cleanup] Once kicks are stable, finish this mob before moving on.",High,Interrupt;Priority Target,3
+Ymirjar Graveblade,Pit of Saron,Immune melee elite with a tank buster and repeated ground eruptions.,"[Tank] Frostbane Slash needs a defensive.
+[Dodge] Keep moving around Dark Rupture circles so the lane does not close off.
+[Pull Control] Avoid dragging extra casters into this mob if the tank is already taxed.",High,Tank;Dodge;Defensive;Priority Target,4
+Rimebone Coldwraith,Pit of Saron,Frost caster that mixes random bolts with dispel pressure.,"[Kick] Spend spare interrupts on Icebolt.
+[Dispel] Remove Permeating Cold with magic dispels or freedom effects.
+[Defensive] Use personals if two players keep the debuff during overlap damage.",Medium,Interrupt;Magic Dispel;Defensive,5
+Glacieth,Pit of Saron,Final-wing mini-boss that fills the bridge with puddles and directional pressure.,"[Spread] Cryoburst hits every player and leaves puddles, so stay loose and move together to fresh space.
+[Dodge] Avoid Focused Guard and save damage for the crit window behind the mob.
+[Priority] Kill this mini-boss promptly so the bridge section stays manageable.",High,Spread;Dodge;Priority Target;Healer,6

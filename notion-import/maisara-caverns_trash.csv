@@ -1,0 +1,22 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Dread Souleater,Maisara Caverns,Immune troll caster that spreads healing absorbs across the party.,"[Healer] Necrotic Wave arcs to nearby players, so stagger externals and healing cooldowns to clear the absorbs.
+[Dodge] Rain of Toads adds floor clutter during the same pull.
+[Priority] Kill this early in most opener packs.",High,Healer;Dodge;Priority Target,1
+Keen Headhunter,Maisara Caverns,Ranged hunter trash that snares one target and spikes another from range.,"[Kick] Stop Hooked Snare or free the target with a freedom effect.
+[Positioning] Throw Spear has a minimum range, so stacking closer to the mob reduces the threat.
+[Routing] Do not let this mob live too long in spread pulls.",Medium,Interrupt;Freedom;Positioning,2
+Hulking Juggernaut,Maisara Caverns,Immune brawler with a major bleed tank hit and a cast-stop check.,"[Tank] Use a defensive or bleed cleanse for Rending Gore.
+[Cast Stop] Deafening Roar finishes with a stop-casting requirement, so cut your cast early.
+[Priority] This is a prime defensive target in the opening area.",High,Tank;Bleed;Cast Stop;Priority Target,3
+Ritual Hexxer,Maisara Caverns,Support caster with a mandatory interrupt and backup bolt pressure.,"[Kick] Interrupt every Hex cast or be ready to magic dispel it.
+[Fallback] Spend spare kicks on Shadow Bolt.
+[Priority] This mob is especially dangerous when paired with Hex Guardian rot.",High,Interrupt;Magic Dispel;Priority Target,4
+Hex Guardian,Maisara Caverns,Immune ritual brute that constantly pulses group damage while marking players.,"[Healer] Searing Presence is always on, so plan cooldowns before the pull starts.
+[Dodge] Magma Surge is a line attack; do not clip the group.
+[Dispel] Remove Ritual Firebrand when possible and keep the marked players moving out of circles.",High,Healer;Magic Dispel;Dodge;Priority Target,5
+Restless Gnarldin,Maisara Caverns,Immune shadow add that adds melee splash damage to the tank profile.,"[Tank] Spectral Strikes makes its melee swings splash shadow damage, so respect sustained uptime.
+[Defensive] Use a defensive for Staggering Blow.
+[Dodge] Move out of Ancestral Crush circles and puddles before they box the pull in.",Medium,Tank;Healer;Dodge;Defensive,6
+Hollow Soulrender,Maisara Caverns,"Immune bridge caster with tank pressure, soul explosions, and a dispellable root.","[Kick] Use spare interrupts on Shadowfrost Blast to lower tank damage.
+[Awareness] Stay away from Lost Souls during Rend Souls so they do not explode on the party.
+[Dispel] Frost Nova can be dispelled or freedomed, but the targeted player should still move away from allies first.",High,Interrupt;Magic Dispel;Tank;Movement;Priority Target,7

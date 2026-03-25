@@ -1,0 +1,19 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Restless Steward,Windrunner Spire,Opening ghost caster that pressures random players with bolts and a double dispel.,"[Kick] Spend as many interrupts as possible on Spirit Bolt.
+[Dispel] Soul Torment lands on two players; dispel one immediately and heal the second through.
+[Priority] This is the first scary caster in the dungeon and worth cleaning up early.",High,Interrupt;Magic Dispel;Healer;Priority Target,1
+Bloated Lasher,Windrunner Spire,Garden caster whose rot window empowers nearby lashers.,"[Kick] Fungal Bolt is the repeatable stop target.
+[Healer] Prepare for Spore Dispersal and remember it also boosts nearby lashling melee damage.
+[Tank] Use a defensive if empowered lashers remain in range during the channel.",Medium,Interrupt;Healer;Tank;Defensive,2
+Ardent Cutthroat,Windrunner Spire,Rogue trash with a poison cast and a random-target jump.,"[Kick] Stop every Poison Blades cast.
+[Positioning] Shadowrive is easier to cleave down when the marked player stays close to the pack.
+[Priority] This mob is a clean stop target in duo and trio pulls.",High,Interrupt;Poison;Priority Target,3
+Devoted Woebringer,Windrunner Spire,Immune caster that alternates heavy bolts with a shielded scream.,"[Kick] Keep Shadow Bolt under control while building damage for Pulsing Shriek.
+[Healer] Use cooldowns when the shielded scream begins if the shield will not break instantly.
+[Priority] Focus this mob first in most packs because the shielded channel gets ugly fast.",High,Interrupt;Healer;Priority Target,4
+Phalanx Breaker,Windrunner Spire,Charge bruiser that punishes bad positioning and active casting.,"[Dodge] Sidestep Break Ranks and, if possible, aim the charge into a wall for efficient cleave.
+[Cast Stop] Interrupting Screech requires the group to stop casting immediately.
+[Priority] Respect this mob in caster-heavy pulls where the screech can cause extra chaos.",Medium,Dodge;Cast Stop;Priority Target,5
+Phantasmal Mystic,Windrunner Spire,Immune support caster with a mandatory interrupt and a dangerous enrage aura.,"[Kick] Interrupt every Chain Lightning cast.
+[Healer] Flame Nova is the scary group hit, especially when paired with random axe throws.
+[Soothe] At 50% the mob enrages nearby enemies with Ephemeral Bloodlust, so soothe if possible or finish it quickly.",High,Interrupt;Healer;Soothe;Priority Target,6

@@ -4,7 +4,7 @@ import { createMechanicTag } from './mechanicTag';
 
 export function createTrashCard(mob: TrashMob): HTMLElement {
   const card = document.createElement('div');
-  card.className = 'bg-gray-800/60 border border-gray-700/50 rounded-lg p-4';
+  card.className = 'bg-gray-900/60 border border-gray-800/50 rounded-xl p-4';
 
   // Header
   const header = document.createElement('div');

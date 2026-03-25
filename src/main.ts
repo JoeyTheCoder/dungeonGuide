@@ -1,43 +1,43 @@
 import './style.css';
-import { createHeader } from './components/header';
 import { createSidebar } from './components/sidebar';
+import { isContentSectionId } from './config/sections';
 import { getDungeons, refreshDungeons } from './services/notion';
 import { initRouter } from './router';
 
-// Mount the header
-const headerEl = document.getElementById('app-header')!;
-headerEl.appendChild(createHeader());
-
-// Mount the sidebar — only visible when on the Mythic+ section
+// Mount the sidebar
 const sidebarEl = document.getElementById('app-sidebar')!;
 
 function renderSidebar() {
   const path = window.location.hash.replace(/^#\//, '') || 'mythicplus';
-  const dungeons = getDungeons();
+  const section = path.split('/')[0];
 
-  // Only show the dungeon sidebar on the mythicplus section
-  if (!path.startsWith('mythicplus') && path !== '/') {
+  if (!section || !isContentSectionId(section)) {
     sidebarEl.innerHTML = '';
+    sidebarEl.appendChild(createSidebar([], 'mythicplus'));
     return;
   }
 
-  const match = path.match(/^mythicplus\/([a-z0-9-]+)$/);
+  const dungeons = getDungeons(section);
+  const match = path.match(new RegExp(`^${section}\\/([a-z0-9-]+)$`));
   const activeId = match ? match[1] : undefined;
   sidebarEl.innerHTML = '';
-  sidebarEl.appendChild(createSidebar(dungeons, activeId));
+  sidebarEl.appendChild(createSidebar(dungeons, section, activeId));
 }
 
 renderSidebar();
 window.addEventListener('hashchange', renderSidebar);
 
-// Boot the router — renders into the content area
+// Boot the router
 const contentEl = document.getElementById('app-content')!;
+const footerEl = document.getElementById('app-footer')!;
+
+footerEl.textContent = `© ${new Date().getFullYear()} Sapphirix. All rights reserved.`;
+
 initRouter(contentEl);
 
-// Fetch latest Notion data, then re-render everything
+// Fetch latest Notion data, then re-render
 refreshDungeons().then(() => {
   renderSidebar();
-  // Re-trigger the current route so the content area updates too
   window.dispatchEvent(new HashChangeEvent('hashchange'));
 });
 

@@ -1,0 +1,13 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Arcanotron Custos,Magisters' Terrace,"Arcane space-control boss with knockbacks, dispels, and an orb-soak refuel phase.","[Phase 1] Use the room edges for Arcane Expulsion puddles, keep Ethereal Shackles dispelled or freedomed, and brace for Repulsing Slam knockbacks.
+[Phase 2] At Refueling Protocol, spread loosely to soak Energy Orbs without over-stacking Unstable Energy, even as more puddles spawn.
+[Phase 3] As floor space disappears, overlap safe puddle placements, save personals for bad Shackles plus Expulsion overlap, and keep the boss moved out of melee clutter.",High,Soak;Magic Dispel;Tank;Healer;Positioning;Defensive;Dodge,1
+Seranel Sunlash,Magisters' Terrace,"Control-heavy caster fight built around mark clears, buff removal, and silence-zone timing.","[Phase 1] Keep Suppression Zone near the center so marked players can clear Runic Mark without boxing the team into dead space.
+[Phase 2] Clear Runic Mark one at a time with enough spacing to avoid double Null Reaction hits, and use a personal on the later clear if needed.
+[Phase 3] Purge Hastening Ward whenever possible and step into Suppression Zone just before Wave of Silence lands to avoid the long pacify.",High,Magic Dispel;Purge;Spread;Defensive;Positioning;Caster Control,2
+Gemellus,Magisters' Terrace,"Clone encounter that ramps at 50% and punishes missed links, puddle placement, and pull-ins.","[Phase 1] On pull and again at 50%, cleave every Triplicate clone because they share health and each clone pressures a different player.
+[Phase 2] Drop Cosmic Sting puddles away from the fighting lane and immediately run Neural Link into your assigned clone to remove both the debuff and the boss shield.
+[Phase 3] Pre-move for Astral Grasp, outrun the pull if targeted, and dodge the clone circles that appear at the same time.",High,Cleave;Movement;Dodge;Positioning;Priority Target;Defensive,3
+Degentrius,Magisters' Terrace,"Pizza-slice void fight with orb passing, beam denial, and tank debuff management.","[Phase 1] Split the group around the room so every Unstable Void Essence pass has a receiver and no one drops the ball, or Void Destruction stacks will spiral the fight.
+[Phase 2] Never cross the Void Torrent beam walls, and keep track of which slice each player is covering before the next pass begins.
+[Phase 3] Tanks point Hulking Fragment away from allies, back out for dispels, and place Umbral Splinters or Stygian Ichor away from melee paths.",High,Soak;Movement;Tank;Magic Dispel;Positioning;Dodge;Coordination,4

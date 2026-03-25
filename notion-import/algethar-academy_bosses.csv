@@ -1,0 +1,13 @@
+Name,Dungeon,Summary,Description,Priority,Tags,Sort Order
+Overgrown Ancient,Algeth'ar Academy,"Add-centric nature boss with group movement, bleed cleanses, and lasher-control bursts.","[Phase 1] Stay stacked and move together during Germinate so spawned adds stay clumped for efficient cleave.
+[Phase 2] Swap to Ancient Branch, interrupt Healing Touch, and use its Abundance circle to clear Splinterbark bleeds.
+[Phase 3] At Burst Forth, pick up Hungry Lashers immediately, rotate poison dispels on Lasher Toxin, kite if necessary, and respect Barkbreaker if adds are still alive.",High,Add Control;Interrupt;Bleed;Poison Dispel;Tank;Healer;Movement;Defensive,1
+Crawth,Algeth'ar Academy,"Arena boss with tank pressure, frontal dodges, and scripted goal intermissions.","[Phase 1] Use tank defensives for Savage Peck and keep spread enough that Deafening Screech splash plus DoT do not overwhelm the party.
+[Phase 2] Sidestep Overpowering Gust and hold stable positioning until Ruinous Winds starts at 75% and 45%.
+[Phase 3] Throw three balls into the chosen goal to interrupt Ruinous Winds, then play around the permanent arena effect from that goal for the rest of the fight.",High,Tank;Dodge;Healer;Movement;Intermission;Objective;Defensive,2
+Vexamus,Algeth'ar Academy,"Orb-soak arcane fight with frontal management, bomb placement, and energy bursts.","[Phase 1] Spread for Arcane Orbs and assign soaks so no player over-stacks Oversurge or lets an orb reach the boss.
+[Phase 2] Tanks point Arcane Expulsion away from the group and Mana Bomb targets move their puddles toward the room edge.
+[Phase 3] At full energy, brace for Arcane Fissure knockback and keep moving through the follow-up circles without dropping back into old puddles.",High,Soak;Tank;Movement;Positioning;Healer;Defensive;Dodge,3
+Echo of Doragosa,Algeth'ar Academy,"Chaotic arcane finale with immediate opener damage, rift control, and combo-hit punishment.","[Phase 1] Enter topped for the opening Unleash Energy, pull toward the entrance, and build your first Arcane Rifts where they will not choke the room.
+[Phase 2] Avoid feeding Overwhelming Power stacks, because three stacks create another Arcane Rift under you and can snowball the arena.
+[Phase 3] Stay loosely spread for Energy Bomb, watch for Arcane Missiles overlap, and use personals whenever those hits line up with existing rift pressure.",High,Movement;Healer;Dodge;Positioning;Defensive;Spread,4
