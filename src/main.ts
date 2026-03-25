@@ -5,7 +5,40 @@ import { getDungeons, refreshDungeons } from './services/notion';
 import { initRouter } from './router';
 
 // Mount the sidebar
+const appShellEl = document.getElementById('app-shell')!;
 const sidebarEl = document.getElementById('app-sidebar')!;
+const sidebarToggleEl = document.getElementById('app-sidebar-toggle') as HTMLButtonElement | null;
+const sidebarBackdropEl = document.getElementById('app-sidebar-backdrop') as HTMLDivElement | null;
+const mobileBreakpoint = window.matchMedia('(max-width: 1023px)');
+
+function setSidebarOpen(isOpen: boolean) {
+  const mobileOpen = isOpen && mobileBreakpoint.matches;
+  appShellEl.dataset.sidebarOpen = mobileOpen ? 'true' : 'false';
+  document.body.classList.toggle('sidebar-open', mobileOpen);
+
+  if (sidebarToggleEl) {
+    sidebarToggleEl.setAttribute('aria-expanded', String(mobileOpen));
+    sidebarToggleEl.textContent = mobileOpen ? 'Close' : 'Menu';
+  }
+
+  if (sidebarBackdropEl) {
+    sidebarBackdropEl.hidden = !mobileOpen;
+  }
+}
+
+function closeSidebar() {
+  setSidebarOpen(false);
+}
+
+function syncResponsiveShell() {
+  if (!mobileBreakpoint.matches) {
+    closeSidebar();
+  } else if (appShellEl.dataset.sidebarOpen !== 'true') {
+    if (sidebarBackdropEl) {
+      sidebarBackdropEl.hidden = true;
+    }
+  }
+}
 
 function renderSidebar() {
   const path = window.location.hash.replace(/^#\//, '') || 'mythicplus';
@@ -25,7 +58,19 @@ function renderSidebar() {
 }
 
 renderSidebar();
-window.addEventListener('hashchange', renderSidebar);
+window.addEventListener('hashchange', () => {
+  renderSidebar();
+  closeSidebar();
+});
+
+sidebarToggleEl?.addEventListener('click', () => {
+  const isOpen = appShellEl.dataset.sidebarOpen === 'true';
+  setSidebarOpen(!isOpen);
+});
+
+sidebarBackdropEl?.addEventListener('click', closeSidebar);
+mobileBreakpoint.addEventListener('change', syncResponsiveShell);
+syncResponsiveShell();
 
 // Boot the router
 const contentEl = document.getElementById('app-content')!;

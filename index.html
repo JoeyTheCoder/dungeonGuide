@@ -22,15 +22,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-950 text-gray-100 h-screen overflow-hidden font-[Inter,sans-serif]">
-  <div class="flex h-full">
-    <!-- Sidebar — full height -->
-    <nav id="app-sidebar" class="w-60 shrink-0 h-full bg-gray-900/80 border-r border-gray-800/50 flex flex-col"></nav>
-    <!-- Main content -->
-    <main class="flex-1 overflow-y-auto">
+<body class="bg-gray-950 text-gray-100 min-h-screen font-[Inter,sans-serif]">
+  <div id="app-shell" class="min-h-screen lg:flex">
+    <div id="app-sidebar-backdrop" hidden></div>
+    <nav id="app-sidebar" class="flex flex-col"></nav>
+    <main id="app-main" class="min-w-0 flex-1">
+      <header id="app-mobile-header">
+        <button
+          id="app-sidebar-toggle"
+          type="button"
+          aria-controls="app-sidebar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+        </button>
+        <a href="#/mythicplus" class="text-sm font-extrabold uppercase tracking-[0.28em] text-gray-100">
+          FFG-Playbook
+        </a>
+      </header>
       <div class="min-h-full flex flex-col">
-        <div id="app-content" class="flex-1 p-8 lg:p-12"></div>
-        <footer id="app-footer" class="px-8 pb-8 pt-4 text-center text-sm text-gray-500 lg:px-12"></footer>
+        <div id="app-content" class="flex-1"></div>
+        <footer id="app-footer" class="text-center text-sm text-gray-500"></footer>
       </div>
     </main>
   </div>

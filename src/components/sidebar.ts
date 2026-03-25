@@ -24,7 +24,7 @@ export function createSidebar(
   const logoImg = document.createElement('img');
   logoImg.src = sapphirixLogo;
   logoImg.alt = 'Sapphirix';
-  logoImg.className = 'w-8 h-8 rounded-md';
+  logoImg.className = 'w-10 h-10 rounded-md';
   logoWrap.appendChild(logoImg);
 
   const logoText = document.createElement('span');

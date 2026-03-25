@@ -20,7 +20,7 @@ export function renderDungeonList(container: HTMLElement, section: ContentSectio
   const logoImg = document.createElement('img');
   logoImg.src = sapphirixLogo;
   logoImg.alt = 'Sapphirix';
-  logoImg.className = 'w-14 h-14 rounded-lg';
+  logoImg.className = 'w-16 h-16 rounded-lg sm:w-18 sm:h-18';
   logoRow.appendChild(logoImg);
 
   const titleBlock = document.createElement('div');

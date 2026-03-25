@@ -1,5 +1,134 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top, rgba(251, 191, 36, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, rgba(3, 7, 18, 1) 28%);
+}
+
+body.sidebar-open {
+  overflow: hidden;
+}
+
+#app-shell {
+  position: relative;
+}
+
+#app-sidebar {
+  width: 15rem;
+  flex-shrink: 0;
+  height: 100vh;
+  background: rgba(17, 24, 39, 0.82);
+  border-right: 1px solid rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(14px);
+}
+
+#app-main {
+  min-width: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#app-mobile-header {
+  display: none;
+}
+
+#app-content {
+  padding: 1.25rem;
+}
+
+#app-footer {
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  #app-content {
+    padding: 2rem;
+  }
+
+  #app-footer {
+    padding: 1rem 2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #app-content {
+    padding: 3rem;
+  }
+
+  #app-footer {
+    padding: 1rem 3rem 2rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  #app-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(18rem, calc(100vw - 3rem));
+    max-width: 100%;
+    transform: translateX(-100%);
+    transition: transform 180ms ease;
+    z-index: 40;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  #app-shell[data-sidebar-open='true'] #app-sidebar {
+    transform: translateX(0);
+  }
+
+  #app-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: rgba(3, 7, 18, 0.7);
+    backdrop-filter: blur(3px);
+  }
+
+  #app-main {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  #app-mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.25rem;
+    background: rgba(3, 7, 18, 0.88);
+    border-bottom: 1px solid rgba(31, 41, 55, 0.75);
+    backdrop-filter: blur(14px);
+  }
+
+  #app-sidebar-toggle {
+    border: 1px solid rgba(75, 85, 99, 0.9);
+    border-radius: 9999px;
+    background: rgba(17, 24, 39, 0.85);
+    color: rgb(243, 244, 246);
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    line-height: 1;
+    padding: 0.85rem 1rem;
+    text-transform: uppercase;
+  }
+
+  #app-content {
+    padding-top: 1.5rem;
+  }
+}
+
 /* Smooth scrolling for in-page navigation */
 html {
   scroll-behavior: smooth;

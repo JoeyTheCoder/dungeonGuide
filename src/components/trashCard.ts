@@ -8,10 +8,10 @@ export function createTrashCard(mob: TrashMob): HTMLElement {
 
   // Header
   const header = document.createElement('div');
-  header.className = 'flex items-center justify-between gap-3 mb-2';
+  header.className = 'flex flex-col gap-2 mb-2 sm:flex-row sm:items-center sm:justify-between';
 
   const name = document.createElement('h4');
-  name.className = 'text-sm font-bold text-gray-200';
+  name.className = 'text-sm font-bold text-gray-200 min-w-0';
   name.textContent = mob.name;
 
   header.appendChild(name);

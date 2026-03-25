@@ -8,10 +8,10 @@ export function createBossCard(boss: Boss): HTMLElement {
 
   // Header
   const header = document.createElement('div');
-  header.className = 'flex items-start justify-between gap-3 mb-4';
+  header.className = 'flex flex-col gap-3 mb-4 sm:flex-row sm:items-start sm:justify-between';
 
   const name = document.createElement('h4');
-  name.className = 'text-lg font-bold text-gray-100';
+  name.className = 'text-lg font-bold text-gray-100 min-w-0';
   name.textContent = boss.name;
 
   header.appendChild(name);
