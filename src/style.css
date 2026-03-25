@@ -23,7 +23,6 @@ body.sidebar-open {
 #app-sidebar {
   width: 15rem;
   flex-shrink: 0;
-  height: 100vh;
   background: rgba(17, 24, 39, 0.82);
   border-right: 1px solid rgba(31, 41, 55, 0.7);
   backdrop-filter: blur(14px);
@@ -59,6 +58,18 @@ body.sidebar-open {
 }
 
 @media (min-width: 1024px) {
+  #app-shell {
+    align-items: flex-start;
+  }
+
+  #app-sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
   #app-content {
     padding: 3rem;
   }
