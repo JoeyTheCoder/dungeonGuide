@@ -60,11 +60,19 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          test -n "$SSH_HOST"
-          test -n "$SSH_USER"
-          test -n "$SSH_PRIVATE_KEY"
-          test -n "$SSH_PORT"
-          test -n "$DEPLOY_PATH"
+          set -eu
+          missing=""
+
+          [ -n "$SSH_HOST" ] || missing="$missing SSH_HOST"
+          [ -n "$SSH_USER" ] || missing="$missing SSH_USER"
+          [ -n "$SSH_PRIVATE_KEY" ] || missing="$missing SSH_PRIVATE_KEY"
+          [ -n "$SSH_PORT" ] || missing="$missing SSH_PORT"
+          [ -n "$DEPLOY_PATH" ] || missing="$missing DEPLOY_PATH"
+
+          if [ -n "$missing" ]; then
+            echo "Missing required deploy secrets:$missing"
+            exit 1
+          fi
 
           case "$DEPLOY_PATH" in
             /|"" )
