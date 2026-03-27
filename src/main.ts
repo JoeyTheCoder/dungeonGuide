@@ -78,9 +78,9 @@ function renderInitialLoadingState() {
     <div class="guide-loading-shell">
       <div class="guide-loading-panel">
         <div class="guide-loading-spinner" aria-hidden="true"></div>
-        <p class="guide-loading-eyebrow">Syncing live guide data</p>
-        <h1 class="guide-loading-title">Preparing the latest dungeon notes</h1>
-        <p class="guide-loading-copy">The page will render once the Notion sync finishes or falls back to local data.</p>
+        <p class="guide-loading-eyebrow">Syncing live data</p>
+        <h1 class="guide-loading-title">Getting the latest data from the FFG Archives</h1>
+        <p class="guide-loading-copy"></p>
       </div>
     </div>
   `;
