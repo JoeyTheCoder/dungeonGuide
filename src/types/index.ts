@@ -52,6 +52,7 @@ export interface Dungeon {
   name: string;
   summary: string;
   expansion?: string;
+  editUrl?: string;
   trashNotes?: TrashNotes;
   bosses: Boss[];
   trash: TrashMob[];

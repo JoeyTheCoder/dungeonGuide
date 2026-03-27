@@ -116,4 +116,29 @@ export function renderDungeonDetail(
     }
     container.appendChild(trashGrid);
   }
+
+  if (dungeon.editUrl) {
+    const editWrap = document.createElement('div');
+    editWrap.className = 'mt-12 rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/10 via-gray-900/70 to-gray-900/90 p-5 sm:p-6';
+
+    const editHeading = document.createElement('h2');
+    editHeading.className = 'text-base font-bold text-gray-100';
+    editHeading.textContent = 'Help improve this dungeon';
+    editWrap.appendChild(editHeading);
+
+    const editCopy = document.createElement('p');
+    editCopy.className = 'mt-2 max-w-2xl text-sm leading-6 text-gray-400';
+    editCopy.textContent = 'Open the matching Notion page to update notes directly or invite other players to contribute.';
+    editWrap.appendChild(editCopy);
+
+    const editLink = document.createElement('a');
+    editLink.href = dungeon.editUrl;
+    editLink.target = '_blank';
+    editLink.rel = 'noreferrer noopener';
+    editLink.className = 'mt-4 inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300 transition-colors hover:border-amber-300 hover:bg-amber-400/20 hover:text-amber-200';
+    editLink.textContent = 'Edit In Notion';
+    editWrap.appendChild(editLink);
+
+    container.appendChild(editWrap);
+  }
 }

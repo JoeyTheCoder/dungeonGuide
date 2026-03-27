@@ -199,6 +199,7 @@ function buildDungeonSources(indexRows) {
       name,
       section: normalizeSectionId(getPlainText(props.Section ?? props['Content Type'])),
       summary: getPlainText(props.Summary ?? props.Description),
+      editUrl: typeof row.url === 'string' ? row.url : '',
       databaseId,
       sortOrder: getNumber(props['Sort Order'] ?? props.Sort),
     });
@@ -213,6 +214,7 @@ function buildDungeonFromRows(source, rows) {
     section: source.section,
     name: source.name,
     summary: source.summary,
+    editUrl: source.editUrl,
     trashNotes: undefined,
     bosses: [],
     trash: [],
