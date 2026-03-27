@@ -11,13 +11,13 @@
     "start": "node ./server/app.mjs"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2",
     "typescript": "~5.9.3",
     "vite": "^8.0.1"
   },
   "dependencies": {
     "@notionhq/client": "^5.14.0",
-    "@tailwindcss/vite": "^4.2.2",
-    "express": "^5.2.1",
-    "tailwindcss": "^4.2.2"
+    "express": "^5.2.1"
   }
 }
