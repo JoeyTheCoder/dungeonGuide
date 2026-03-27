@@ -40,6 +40,9 @@ export function notionDevApi() {
 
       server.middlewares.use('/api/dungeons', async (_req, res) => {
         res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
 
         if (missingEnvVars.length > 0) {
           res.statusCode = 503;

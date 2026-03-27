@@ -38,12 +38,21 @@ export interface TrashMob {
   priority: PriorityLevel;
 }
 
+export interface TrashNotes {
+  name: string;
+  summary: string;
+  mechanics: MechanicNote[];
+  tags?: MechanicTag[];
+  priority: PriorityLevel;
+}
+
 export interface Dungeon {
   id: string;
   section: ContentSectionId;
   name: string;
   summary: string;
   expansion?: string;
+  trashNotes?: TrashNotes;
   bosses: Boss[];
   trash: TrashMob[];
 }

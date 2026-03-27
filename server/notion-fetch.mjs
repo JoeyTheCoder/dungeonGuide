@@ -107,6 +107,10 @@ function normalizeEntrySection(value) {
   return 'boss';
 }
 
+function isTrashNotesEntry(value) {
+  return value.trim().toLowerCase() === 'trash notes';
+}
+
 function collectMechanicTags(mechanics, fallbackTags) {
   return unique([
     ...fallbackTags,
@@ -215,6 +219,7 @@ function buildDungeonFromRows(source, rows) {
     section: source.section,
     name: source.name,
     summary: source.summary,
+    trashNotes: undefined,
     bosses: [],
     trash: [],
     sortOrder: source.sortOrder,
@@ -240,6 +245,11 @@ function buildDungeonFromRows(source, rows) {
       sortOrder: getNumber(props['Sort Order'] ?? props.Sort),
     };
 
+    if (isTrashNotesEntry(name)) {
+      dungeon.trashNotes = entry;
+      continue;
+    }
+
     if (entrySection === 'trash') {
       dungeon.trash.push(entry);
     } else {
@@ -256,8 +266,13 @@ function buildDungeonFromRows(source, rows) {
 function sortDungeons(dungeonEntries) {
   dungeonEntries.sort((a, b) => (a.sortOrder - b.sortOrder) || a.name.localeCompare(b.name));
 
-  return dungeonEntries.map(({ sortOrder, bosses, trash, ...dungeon }) => ({
+  return dungeonEntries.map(({ sortOrder, bosses, trash, trashNotes, ...dungeon }) => ({
     ...dungeon,
+    ...(trashNotes
+      ? {
+          trashNotes: (({ sortOrder: _trashNotesSort, ...notes }) => notes)(trashNotes),
+        }
+      : {}),
     bosses: bosses.map(({ sortOrder: _bossSort, ...boss }) => boss),
     trash: trash.map(({ sortOrder: _trashSort, ...mob }) => mob),
   }));

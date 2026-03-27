@@ -7,17 +7,16 @@ let liveDungeons: Dungeon[] = enrichDungeons(staticDungeons);
 let fetchPromise: Promise<void> | null = null;
 
 /**
- * Kick off a fetch from /api/dungeons (served by the Vite dev plugin).
- * In production the endpoint won't exist, so this gracefully falls back
+ * Kick off a fetch from /api/dungeons.
+ * When a live API is available, this pulls fresh data on every page load.
+ * If the endpoint is missing or unavailable, the app gracefully falls back
  * to the static dataset baked in at build time.
  */
 export function refreshDungeons(): Promise<void> {
-  if (import.meta.env.PROD) {
-    return Promise.resolve();
-  }
-
   if (!fetchPromise) {
-    fetchPromise = fetch('/api/dungeons')
+    fetchPromise = fetch(`/api/dungeons?ts=${Date.now()}`, {
+      cache: 'no-store',
+    })
       .then(async (res) => {
         if (!res.ok) throw new Error(`API ${res.status}`);
         const data: Dungeon[] = await res.json();

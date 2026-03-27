@@ -60,6 +60,41 @@ export function renderDungeonDetail(
   summary.textContent = dungeon.summary;
   container.appendChild(summary);
 
+  if (dungeon.trashNotes) {
+    container.appendChild(createSectionTitle('Trash Notes'));
+
+    const trashNotesCard = document.createElement('div');
+    trashNotesCard.className = 'w-full bg-gray-900/60 border border-gray-800/50 rounded-xl p-5 mb-10';
+
+    if (dungeon.trashNotes.summary.trim()) {
+      const trashNotesSummary = document.createElement('p');
+      trashNotesSummary.className = 'text-sm text-gray-400 mb-4';
+      trashNotesSummary.textContent = dungeon.trashNotes.summary;
+      trashNotesCard.appendChild(trashNotesSummary);
+    }
+
+    if (dungeon.trashNotes.mechanics.length > 0) {
+      const notesList = document.createElement('ul');
+      notesList.className = 'space-y-3';
+
+      for (const mechanic of dungeon.trashNotes.mechanics) {
+        const item = document.createElement('li');
+        item.className = 'rounded-lg border border-gray-700/70 bg-gray-900/40 px-4 py-3';
+
+        const text = document.createElement('p');
+        text.className = 'text-sm text-gray-200 leading-6';
+        text.textContent = `• ${mechanic.text}`;
+        item.appendChild(text);
+
+        notesList.appendChild(item);
+      }
+
+      trashNotesCard.appendChild(notesList);
+    }
+
+    container.appendChild(trashNotesCard);
+  }
+
   // Bosses section
   if (dungeon.bosses.length > 0) {
     container.appendChild(createSectionTitle(`Bosses (${dungeon.bosses.length})`));
