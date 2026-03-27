@@ -1,5 +1,4 @@
 import type { TrashMob } from '../types';
-import { createPriorityBadge } from './priorityBadge';
 import { createMechanicTag } from './mechanicTag';
 
 export function createTrashCard(mob: TrashMob): HTMLElement {
@@ -15,7 +14,6 @@ export function createTrashCard(mob: TrashMob): HTMLElement {
   name.textContent = mob.name;
 
   header.appendChild(name);
-  header.appendChild(createPriorityBadge(mob.priority));
   card.appendChild(header);
 
   // Summary

@@ -1,5 +1,4 @@
 import type { Boss } from '../types';
-import { createPriorityBadge } from './priorityBadge';
 import { createMechanicTag } from './mechanicTag';
 
 export function createBossCard(boss: Boss): HTMLElement {
@@ -28,7 +27,6 @@ export function createBossCard(boss: Boss): HTMLElement {
   toggle.appendChild(name);
 
   header.appendChild(toggle);
-  header.appendChild(createPriorityBadge(boss.priority));
   card.appendChild(header);
 
   const details = document.createElement('div');

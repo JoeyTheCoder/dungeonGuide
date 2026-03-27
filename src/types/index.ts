@@ -27,7 +27,7 @@ export interface Boss {
   summary: string;
   mechanics: MechanicNote[];
   tags?: MechanicTag[];
-  priority: PriorityLevel;
+  priority?: PriorityLevel;
 }
 
 export interface TrashMob {
@@ -35,7 +35,7 @@ export interface TrashMob {
   summary: string;
   mechanics: MechanicNote[];
   tags?: MechanicTag[];
-  priority: PriorityLevel;
+  priority?: PriorityLevel;
 }
 
 export interface TrashNotes {
@@ -43,7 +43,7 @@ export interface TrashNotes {
   summary: string;
   mechanics: MechanicNote[];
   tags?: MechanicTag[];
-  priority: PriorityLevel;
+  priority?: PriorityLevel;
 }
 
 export interface Dungeon {

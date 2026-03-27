@@ -82,13 +82,6 @@ function parseTags(property) {
   return parseTagsFromText(getPlainText(property));
 }
 
-function normalizePriority(value) {
-  const normalized = value.trim().toLowerCase();
-  if (normalized === 'high') return 'High';
-  if (normalized === 'medium') return 'Medium';
-  return 'Low';
-}
-
 function normalizeSectionId(value) {
   const normalized = value.trim().toLowerCase();
   if (!normalized) return 'mythicplus';
@@ -242,7 +235,6 @@ function buildDungeonFromRows(source, rows) {
       summary,
       mechanics,
       tags: collectMechanicTags(mechanics, defaultTags),
-      priority: normalizePriority(getPlainText(props.Priority)),
       sortOrder: getNumber(props['Sort Order'] ?? props.Sort),
     };
 
