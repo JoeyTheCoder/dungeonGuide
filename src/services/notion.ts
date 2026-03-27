@@ -6,6 +6,26 @@ import type { ContentSectionId, Dungeon } from '../types';
 let liveDungeons: Dungeon[] = enrichDungeons(staticDungeons);
 let fetchPromise: Promise<void> | null = null;
 
+function mergeDungeonData(previousDungeons: Dungeon[], nextDungeons: Dungeon[]): Dungeon[] {
+  const previousByKey = new Map(
+    previousDungeons.map((dungeon) => [`${dungeon.section ?? 'mythicplus'}:${dungeon.id}`, dungeon])
+  );
+
+  return nextDungeons.map((dungeon) => {
+    const previousDungeon = previousByKey.get(`${dungeon.section ?? 'mythicplus'}:${dungeon.id}`);
+    if (!previousDungeon) {
+      return dungeon;
+    }
+
+    return {
+      ...dungeon,
+      editUrl: dungeon.editUrl || previousDungeon.editUrl,
+      expansion: dungeon.expansion || previousDungeon.expansion,
+      summary: dungeon.summary || previousDungeon.summary,
+    };
+  });
+}
+
 /**
  * Kick off a fetch from /api/dungeons.
  * When a live API is available, this pulls fresh data on every page load.
@@ -21,7 +41,7 @@ export function refreshDungeons(): Promise<void> {
         if (!res.ok) throw new Error(`API ${res.status}`);
         const data: Dungeon[] = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          liveDungeons = enrichDungeons(data);
+          liveDungeons = enrichDungeons(mergeDungeonData(liveDungeons, data));
           console.info('[notion] Loaded live Notion data.', {
             dungeons: data.length,
           });

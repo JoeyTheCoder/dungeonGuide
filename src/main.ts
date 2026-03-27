@@ -57,12 +57,6 @@ function renderSidebar() {
   sidebarEl.appendChild(createSidebar(dungeons, section, activeId));
 }
 
-renderSidebar();
-window.addEventListener('hashchange', () => {
-  renderSidebar();
-  closeSidebar();
-});
-
 sidebarToggleEl?.addEventListener('click', () => {
   const isOpen = appShellEl.dataset.sidebarOpen === 'true';
   setSidebarOpen(!isOpen);
@@ -78,11 +72,30 @@ const footerEl = document.getElementById('app-footer')!;
 
 footerEl.textContent = `© ${new Date().getFullYear()} Sapphirix. All rights reserved.`;
 
-initRouter(contentEl);
+function renderInitialLoadingState() {
+  sidebarEl.innerHTML = '';
+  contentEl.innerHTML = `
+    <div class="guide-loading-shell">
+      <div class="guide-loading-panel">
+        <div class="guide-loading-spinner" aria-hidden="true"></div>
+        <p class="guide-loading-eyebrow">Syncing live guide data</p>
+        <h1 class="guide-loading-title">Preparing the latest dungeon notes</h1>
+        <p class="guide-loading-copy">The page will render once the Notion sync finishes or falls back to local data.</p>
+      </div>
+    </div>
+  `;
+}
 
-// Fetch latest Notion data, then re-render
-refreshDungeons().then(() => {
+async function bootstrapApp() {
+  renderInitialLoadingState();
+  await refreshDungeons();
   renderSidebar();
-  window.dispatchEvent(new HashChangeEvent('hashchange'));
-});
+  window.addEventListener('hashchange', () => {
+    renderSidebar();
+    closeSidebar();
+  });
+  initRouter(contentEl);
+}
+
+bootstrapApp();
 
