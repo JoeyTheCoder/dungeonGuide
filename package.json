@@ -7,7 +7,8 @@
     "sync:notion": "node ./scripts/sync-notion.mjs",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node ./server/app.mjs"
   },
   "devDependencies": {
     "typescript": "~5.9.3",
@@ -16,6 +17,7 @@
   "dependencies": {
     "@notionhq/client": "^5.14.0",
     "@tailwindcss/vite": "^4.2.2",
+    "express": "^5.2.1",
     "tailwindcss": "^4.2.2"
   }
 }

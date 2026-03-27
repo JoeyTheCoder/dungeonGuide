@@ -39,11 +39,23 @@ jobs:
       - name: Build app
         run: npm run build
 
+      - name: Prepare runtime artifact
+        run: |
+          set -eu
+          mkdir -p deploy-package/server
+          cp -R dist deploy-package/dist
+          cp package.json deploy-package/package.json
+          cp package-lock.json deploy-package/package-lock.json
+          cp .env.example deploy-package/.env.example
+          cp server/app.mjs deploy-package/server/app.mjs
+          cp server/notion-config.mjs deploy-package/server/notion-config.mjs
+          cp server/notion-fetch.mjs deploy-package/server/notion-fetch.mjs
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: site-dist
-          path: dist
+          name: deploy-package
+          path: deploy-package
           if-no-files-found: error
 
   deploy:
@@ -90,8 +102,8 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: site-dist
-          path: dist
+          name: deploy-package
+          path: deploy-package
 
       - name: Prepare remote deploy directory
         uses: appleboy/ssh-action@v1.2.0
@@ -120,11 +132,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: dist/*
+          source: deploy-package/*
           target: /tmp/dungeonGuide-${{ github.run_id }}-${{ github.run_attempt }}
           strip_components: 1
 
-      - name: Publish site into web root
+      - name: Publish app and install runtime dependencies
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -134,9 +146,17 @@ jobs:
           script: |
             set -eu
             DEPLOY_PATH="${{ secrets.DEPLOY_PATH }}"
+            SYSTEMD_SERVICE_NAME="${{ secrets.SYSTEMD_SERVICE_NAME }}"
             TMP_DEPLOY_PATH="/tmp/dungeonGuide-${{ github.run_id }}-${{ github.run_attempt }}"
 
             sudo mkdir -p "$DEPLOY_PATH"
             sudo find "$DEPLOY_PATH" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
             sudo cp -a "$TMP_DEPLOY_PATH"/. "$DEPLOY_PATH"/
+            cd "$DEPLOY_PATH"
+            npm ci --omit=dev
+
+            if [ -n "$SYSTEMD_SERVICE_NAME" ]; then
+              sudo systemctl restart "$SYSTEMD_SERVICE_NAME"
+            fi
+
             rm -rf "$TMP_DEPLOY_PATH"
