@@ -22,6 +22,7 @@ function getPlainText(property) {
   return '';
 }
 
+
 function getNumber(property) {
   if (!property) return 0;
   if (property.type === 'number') return property.number ?? 0;
