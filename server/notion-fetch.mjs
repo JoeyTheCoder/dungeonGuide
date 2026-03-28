@@ -15,6 +15,7 @@ function getPlainText(property) {
   if (property.type === 'select') return property.select?.name?.trim() || '';
   if (property.type === 'status') return property.status?.name?.trim() || '';
   if (property.type === 'multi_select') return property.multi_select.map((item) => item.name).join(';').trim();
+  if (property.type === 'url') return property.url?.trim() || '';
   if (property.type === 'formula') {
     if (property.formula.type === 'string') return property.formula.string?.trim() || '';
     if (property.formula.type === 'number') return `${property.formula.number ?? ''}`.trim();
@@ -184,6 +185,16 @@ function getDungeonInlineDatabaseId(props) {
   );
 }
 
+function getDungeonPageLink(props, row) {
+  return getPlainText(
+    props.link
+    ?? props.Link
+    ?? props['Page Link']
+    ?? props['Notion Page']
+    ?? props.URL
+  ) || (typeof row.url === 'string' ? row.url : '');
+}
+
 function buildDungeonSources(indexRows) {
   const sources = [];
 
@@ -199,7 +210,7 @@ function buildDungeonSources(indexRows) {
       name,
       section: normalizeSectionId(getPlainText(props.Section ?? props['Content Type'])),
       summary: getPlainText(props.Summary ?? props.Description),
-      editUrl: typeof row.url === 'string' ? row.url : '',
+      editUrl: getDungeonPageLink(props, row),
       databaseId,
       sortOrder: getNumber(props['Sort Order'] ?? props.Sort),
     });
