@@ -1,11 +1,13 @@
 import type { Boss } from '../types';
+import { createCopyButton } from './copyButton';
 import { createMechanicTag } from './mechanicTag';
+import { formatEncounterChatText } from '../utils/chatCopy';
 
 export function createBossCard(boss: Boss): HTMLElement {
   const card = document.createElement('div');
   card.className = 'w-full bg-gray-900/60 border border-gray-800/50 rounded-xl p-5';
-  const expandedHeaderClass = 'flex flex-col gap-3 mb-4 sm:flex-row sm:items-start sm:justify-between';
-  const collapsedHeaderClass = 'flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between';
+  const expandedHeaderClass = 'flex items-start justify-between gap-3 mb-4';
+  const collapsedHeaderClass = 'flex items-start justify-between gap-3';
 
   // Header
   const header = document.createElement('div');
@@ -13,7 +15,7 @@ export function createBossCard(boss: Boss): HTMLElement {
 
   const toggle = document.createElement('button');
   toggle.type = 'button';
-  toggle.className = 'flex min-w-0 items-center gap-3 text-left text-gray-100 transition-colors hover:text-amber-400';
+  toggle.className = 'flex min-w-0 flex-1 items-center gap-3 text-left text-gray-100 transition-colors hover:text-amber-400';
   toggle.setAttribute('aria-expanded', 'true');
 
   const arrow = document.createElement('span');
@@ -27,6 +29,7 @@ export function createBossCard(boss: Boss): HTMLElement {
   toggle.appendChild(name);
 
   header.appendChild(toggle);
+  header.appendChild(createCopyButton(() => formatEncounterChatText(boss)));
   card.appendChild(header);
 
   const details = document.createElement('div');

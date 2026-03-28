@@ -1,5 +1,7 @@
 import type { TrashMob } from '../types';
+import { createCopyButton } from './copyButton';
 import { createMechanicTag } from './mechanicTag';
+import { formatEncounterChatText } from '../utils/chatCopy';
 
 export function createTrashCard(mob: TrashMob): HTMLElement {
   const card = document.createElement('div');
@@ -7,13 +9,14 @@ export function createTrashCard(mob: TrashMob): HTMLElement {
 
   // Header
   const header = document.createElement('div');
-  header.className = 'flex flex-col gap-2 mb-2 sm:flex-row sm:items-center sm:justify-between';
+  header.className = 'mb-2 flex items-start justify-between gap-3';
 
   const name = document.createElement('h4');
-  name.className = 'text-sm font-bold text-gray-200 min-w-0';
+  name.className = 'min-w-0 flex-1 text-sm font-bold text-gray-200';
   name.textContent = mob.name;
 
   header.appendChild(name);
+  header.appendChild(createCopyButton(() => formatEncounterChatText(mob)));
   card.appendChild(header);
 
   // Summary

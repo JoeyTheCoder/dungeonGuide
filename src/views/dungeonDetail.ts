@@ -1,9 +1,11 @@
 import { createBossCard } from '../components/bossCard';
+import { createCopyButton } from '../components/copyButton';
 import { createTrashCard } from '../components/trashCard';
 import { createSectionTitle } from '../components/sectionTitle';
 import { navigate } from '../router.ts';
 import { getDungeonById } from '../services/notion';
 import type { ContentSectionId } from '../types';
+import { formatEncounterChatText } from '../utils/chatCopy';
 
 export function renderDungeonDetail(
   container: HTMLElement,
@@ -65,6 +67,11 @@ export function renderDungeonDetail(
 
     const trashNotesCard = document.createElement('div');
     trashNotesCard.className = 'w-full bg-gray-900/60 border border-gray-800/50 rounded-xl p-5 mb-10';
+
+    const trashNotesHeader = document.createElement('div');
+    trashNotesHeader.className = 'mb-4 flex justify-end';
+    trashNotesHeader.appendChild(createCopyButton(() => formatEncounterChatText(dungeon.trashNotes!)));
+    trashNotesCard.appendChild(trashNotesHeader);
 
     if (dungeon.trashNotes.summary.trim()) {
       const trashNotesSummary = document.createElement('p');
