@@ -71,7 +71,7 @@ export function createSidebar(
 
   const listLabel = document.createElement('p');
   listLabel.className = 'text-[10px] font-bold uppercase tracking-widest text-gray-600 px-3 mb-2';
-  listLabel.textContent = 'Dungeons';
+  listLabel.textContent = sectionMeta[section].entryPluralLabel;
   listWrap.appendChild(listLabel);
 
   for (const d of dungeons) {

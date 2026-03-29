@@ -57,8 +57,8 @@ export function renderDungeonList(container: HTMLElement, section: ContentSectio
       const empty = document.createElement('p');
       empty.className = 'text-sm text-gray-500 col-span-full';
       empty.textContent = query.trim()
-        ? 'No entries match your search.'
-        : `No ${meta.label.toLowerCase()} entries are available yet.`;
+        ? `No ${meta.entryPluralLabel.toLowerCase()} match your search.`
+        : `No ${meta.entryPluralLabel.toLowerCase()} are available yet.`;
       grid.appendChild(empty);
       return;
     }
@@ -68,7 +68,7 @@ export function renderDungeonList(container: HTMLElement, section: ContentSectio
     }
   }
 
-  searchWrap.appendChild(createSearchBar((q) => renderCards(q)));
+  searchWrap.appendChild(createSearchBar((q) => renderCards(q), `Search ${meta.entryPluralLabel.toLowerCase()}...`));
   container.appendChild(searchWrap);
   container.appendChild(grid);
 

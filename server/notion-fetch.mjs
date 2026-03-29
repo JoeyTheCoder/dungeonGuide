@@ -195,7 +195,7 @@ function getDungeonPageLink(props, row) {
   ) || (typeof row.url === 'string' ? row.url : '');
 }
 
-function buildDungeonSources(indexRows) {
+function buildDungeonSources(indexRows, defaultSection) {
   const sources = [];
 
   for (const row of indexRows) {
@@ -208,7 +208,7 @@ function buildDungeonSources(indexRows) {
     sources.push({
       id: getPlainText(props.Slug) || slugify(name),
       name,
-      section: normalizeSectionId(getPlainText(props.Section ?? props['Content Type'])),
+      section: normalizeSectionId(getPlainText(props.Section ?? props['Content Type']) || defaultSection),
       summary: getPlainText(props.Summary ?? props.Description),
       editUrl: getDungeonPageLink(props, row),
       databaseId,
@@ -284,13 +284,21 @@ function sortDungeons(dungeonEntries) {
   }));
 }
 
-export async function fetchDungeonsFromNotion(token, dungeonsDatabaseId) {
+export async function fetchContentFromNotion(token, indexSources) {
   const notion = new Client({ auth: token });
-  const indexRows = await queryAllPages(notion, dungeonsDatabaseId);
-  const dungeonSources = buildDungeonSources(indexRows);
+  const sourceMap = new Map();
+
+  for (const indexSource of indexSources) {
+    const indexRows = await queryAllPages(notion, indexSource.databaseId);
+    const dungeonSources = buildDungeonSources(indexRows, indexSource.section);
+
+    for (const source of dungeonSources) {
+      sourceMap.set(`${source.section}:${source.id}`, source);
+    }
+  }
 
   const dungeons = await Promise.all(
-    dungeonSources.map(async (source) => {
+    [...sourceMap.values()].map(async (source) => {
       const rows = await queryAllPages(notion, source.databaseId);
       return buildDungeonFromRows(source, rows);
     })

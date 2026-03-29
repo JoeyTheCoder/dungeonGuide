@@ -2,21 +2,33 @@ import type { ContentSectionId } from '../types';
 
 export const sectionOrder: ContentSectionId[] = ['mythicplus', 'raids', 'delves'];
 
-export const sectionMeta: Record<ContentSectionId, { label: string; listTitle: string; listSubtitle: string }> = {
+export const sectionMeta: Record<ContentSectionId, {
+  label: string;
+  listTitle: string;
+  listSubtitle: string;
+  entrySingularLabel: string;
+  entryPluralLabel: string;
+}> = {
   mythicplus: {
     label: 'Mythic+',
     listTitle: 'Mythic+ Dungeons',
     listSubtitle: 'Select a dungeon to view bosses, trash, and mechanic notes.',
+    entrySingularLabel: 'Dungeon',
+    entryPluralLabel: 'Dungeons',
   },
   raids: {
     label: 'Raids',
     listTitle: 'Raid Instances',
     listSubtitle: 'Select a raid to view bosses, trash, and encounter notes.',
+    entrySingularLabel: 'Raid',
+    entryPluralLabel: 'Raids',
   },
   delves: {
     label: 'Delves',
     listTitle: 'Delves',
     listSubtitle: 'Select a delve to view bosses, trash, and quick-reference notes.',
+    entrySingularLabel: 'Delve',
+    entryPluralLabel: 'Delves',
   },
 };
 

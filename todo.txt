@@ -1,5 +1,0 @@
-- add copy button so people can copy mechanics into chat right away ingame
-- make more structure in notion it's too messy now
-- make cards collapseable so it's easier to navigate to the right boss
-- add pictures of important phases
-- redesign page for sapphirix branding

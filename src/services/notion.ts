@@ -2,7 +2,7 @@ import { dungeons as staticDungeons } from '../data/dungeons';
 import { enrichDungeons } from '../data/dungeon-metadata';
 import type { ContentSectionId, Dungeon } from '../types';
 
-/** Live dungeon data — starts with static, replaced by API data on load */
+/** Live playbook data — starts with static, refreshed from the API on load */
 let liveDungeons: Dungeon[] = enrichDungeons(staticDungeons);
 let fetchPromise: Promise<void> | null = null;
 
@@ -10,8 +10,9 @@ function mergeDungeonData(previousDungeons: Dungeon[], nextDungeons: Dungeon[]):
   const previousByKey = new Map(
     previousDungeons.map((dungeon) => [`${dungeon.section ?? 'mythicplus'}:${dungeon.id}`, dungeon])
   );
+  const nextSections = new Set(nextDungeons.map((dungeon) => dungeon.section ?? 'mythicplus'));
 
-  return nextDungeons.map((dungeon) => {
+  const mergedNextDungeons = nextDungeons.map((dungeon) => {
     const previousDungeon = previousByKey.get(`${dungeon.section ?? 'mythicplus'}:${dungeon.id}`);
     if (!previousDungeon) {
       return dungeon;
@@ -24,6 +25,12 @@ function mergeDungeonData(previousDungeons: Dungeon[], nextDungeons: Dungeon[]):
       summary: dungeon.summary || previousDungeon.summary,
     };
   });
+
+  const untouchedPreviousDungeons = previousDungeons.filter(
+    (dungeon) => !nextSections.has(dungeon.section ?? 'mythicplus')
+  );
+
+  return [...untouchedPreviousDungeons, ...mergedNextDungeons];
 }
 
 /**
@@ -43,7 +50,7 @@ export function refreshDungeons(): Promise<void> {
         if (Array.isArray(data) && data.length > 0) {
           liveDungeons = enrichDungeons(mergeDungeonData(liveDungeons, data));
           console.info('[notion] Loaded live Notion data.', {
-            dungeons: data.length,
+            entries: data.length,
           });
         }
       })

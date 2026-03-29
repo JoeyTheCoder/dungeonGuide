@@ -2,6 +2,7 @@ import { createBossCard } from '../components/bossCard';
 import { createCopyButton } from '../components/copyButton';
 import { createTrashCard } from '../components/trashCard';
 import { createSectionTitle } from '../components/sectionTitle';
+import { sectionMeta } from '../config/sections';
 import { navigate } from '../router.ts';
 import { getDungeonById } from '../services/notion';
 import type { ContentSectionId } from '../types';
@@ -15,15 +16,16 @@ export function renderDungeonDetail(
   container.innerHTML = '';
 
   const dungeon = getDungeonById(section, dungeonId);
+  const meta = sectionMeta[section];
 
   if (!dungeon) {
     const msg = document.createElement('p');
     msg.className = 'text-gray-400';
-    msg.textContent = 'Dungeon not found.';
+    msg.textContent = `${meta.entrySingularLabel} not found.`;
 
     const backBtn = document.createElement('button');
     backBtn.className = 'mt-4 text-sm text-amber-400 hover:underline';
-    backBtn.textContent = '← Back to all dungeons';
+    backBtn.textContent = `← Back to all ${meta.entryPluralLabel.toLowerCase()}`;
     backBtn.addEventListener('click', () => navigate(`/${section}`));
 
     container.appendChild(msg);
@@ -34,7 +36,7 @@ export function renderDungeonDetail(
   // Back link
   const back = document.createElement('button');
   back.className = 'text-sm text-gray-500 hover:text-amber-400 transition-colors mb-6 inline-flex items-center gap-1';
-  back.textContent = '← All Dungeons';
+  back.textContent = `← All ${meta.entryPluralLabel}`;
   back.addEventListener('click', () => navigate(`/${section}`));
   container.appendChild(back);
 
@@ -130,7 +132,7 @@ export function renderDungeonDetail(
 
     const editHeading = document.createElement('h2');
     editHeading.className = 'text-base font-bold text-gray-100';
-    editHeading.textContent = 'Help improve this dungeon';
+    editHeading.textContent = `Help improve this ${meta.entrySingularLabel.toLowerCase()}`;
     editWrap.appendChild(editHeading);
 
     const editCopy = document.createElement('p');

@@ -1,8 +1,8 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DUNGEONS_INDEX_ENV_KEY, getDungeonIndexDatabaseId } from './notion-config.mjs';
-import { fetchDungeonsFromNotion } from './notion-fetch.mjs';
+import { OVERVIEW_DATABASE_ENV_HINT, getNotionIndexSources } from './notion-config.mjs';
+import { fetchContentFromNotion } from './notion-fetch.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,8 +21,8 @@ function getMissingEnvVars() {
     missing.push('NOTION_TOKEN');
   }
 
-  if (!getDungeonIndexDatabaseId(process.env)) {
-    missing.push(DUNGEONS_INDEX_ENV_KEY);
+  if (getNotionIndexSources(process.env).length === 0) {
+    missing.push(OVERVIEW_DATABASE_ENV_HINT);
   }
 
   return missing;
@@ -54,10 +54,7 @@ app.get('/api/dungeons', async (_req, res) => {
   }
 
   try {
-    const dungeons = await fetchDungeonsFromNotion(
-      process.env.NOTION_TOKEN,
-      getDungeonIndexDatabaseId(process.env)
-    );
+    const dungeons = await fetchContentFromNotion(process.env.NOTION_TOKEN, getNotionIndexSources(process.env));
     res.json(dungeons);
   } catch (error) {
     console.error('[api/dungeons]', error?.message || error);

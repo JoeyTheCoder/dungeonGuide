@@ -4,18 +4,18 @@
  * the latest data. The Notion secret never leaves the dev server.
  */
 import { loadEnv } from 'vite';
-import { DUNGEONS_INDEX_ENV_KEY, getDungeonIndexDatabaseId } from './notion-config.mjs';
-import { fetchDungeonsFromNotion } from './notion-fetch.mjs';
+import { OVERVIEW_DATABASE_ENV_HINT, getNotionIndexSources } from './notion-config.mjs';
+import { fetchContentFromNotion } from './notion-fetch.mjs';
 
-function getMissingEnvVars(token, dungeonsDatabaseId) {
+function getMissingEnvVars(token, indexSources) {
   const missing = [];
 
   if (!token) {
     missing.push('NOTION_TOKEN');
   }
 
-  if (!dungeonsDatabaseId) {
-    missing.push(DUNGEONS_INDEX_ENV_KEY);
+  if (indexSources.length === 0) {
+    missing.push(OVERVIEW_DATABASE_ENV_HINT);
   }
 
   return missing;
@@ -29,8 +29,8 @@ export function notionDevApi() {
     configureServer(server) {
       const env = loadEnv('development', process.cwd(), '');
       const token = env.NOTION_TOKEN;
-      const dungeonsDatabaseId = getDungeonIndexDatabaseId(env);
-      const missingEnvVars = getMissingEnvVars(token, dungeonsDatabaseId);
+      const indexSources = getNotionIndexSources(env);
+      const missingEnvVars = getMissingEnvVars(token, indexSources);
 
       if (missingEnvVars.length > 0) {
         console.warn(
@@ -54,7 +54,7 @@ export function notionDevApi() {
         }
 
         try {
-          const dungeons = await fetchDungeonsFromNotion(token, dungeonsDatabaseId);
+          const dungeons = await fetchContentFromNotion(token, indexSources);
           res.end(JSON.stringify(dungeons));
         } catch (err) {
           console.error('[notion-dev-api]', err?.message || err);
